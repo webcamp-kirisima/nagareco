@@ -311,6 +311,64 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
+Started GET "/users/1" for 10.0.2.2 at 2019-07-13 06:24:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2788ms (Views: 2739.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-07-13 06:26:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4453ms (Views: 4428.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2019-07-13 06:27:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+=======
 Started GET "/adimin/users/index" for 10.0.2.2 at 2019-07-13 06:38:58 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -417,6 +475,7 @@ Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0
 ActionController::RoutingError (No route matches [GET] "/adimin/users/index"):
   
 actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+>>>>>>> develop
 web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
 web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
@@ -443,10 +502,17 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+<<<<<<< HEAD
+Started GET "/sign_in" for 10.0.2.2 at 2019-07-13 06:27:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/sign_in"):
+=======
 Started GET "/adimin/users/index" for 10.0.2.2 at 2019-07-13 06:40:34 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   
 ActionController::RoutingError (No route matches [GET] "/adimin/users/index"):
+>>>>>>> develop
   
 actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
 web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
@@ -475,6 +541,104 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+<<<<<<< HEAD
+Started GET "/users/sign_in" for 10.0.2.2 at 2019-07-13 06:28:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (246.5ms)
+Completed 200 OK in 614ms (Views: 608.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 10.0.2.2 at 2019-07-13 06:28:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 357ms (Views: 355.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "cartitems"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "cartitems" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "buy_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "discs"[0m
+  ↳ db/schema.rb:46
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "discs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "products_id" integer, "disc_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:46
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres"[0m
+  ↳ db/schema.rb:53
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "genre" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:53
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "labels"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "genre_id" integer, "label_id" integer, "artist_id" integer, "cd_title" varchar, "notax_price" integer, "stock" integer, "stock_status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "sell_details"[0m
+  ↳ db/schema.rb:77
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "sell_details" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Sell_id" integer, "products_id" integer, "sell_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:77
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "sells"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "sells" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pay" integer, "ship_address" varchar, "ship_tel" varchar, "ship_code" varchar, "ship_name" varchar, "ship_cost" integer, "total" integer, "status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "ships"[0m
+  ↳ db/schema.rb:99
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "address" varchar, "tel" varchar, "code" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:99
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:109
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "disc_id" integer, "track_num" integer, "song" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:109
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:117
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "last_name" varchar, "first_name" varchar, "last_kana" varchar, "first_kana" varchar, "zip_code" varchar, "address" varchar, "tel" varchar, "member_status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:117
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:117
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:117
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190713033531)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+=======
 Started GET "//admin/products/inedx" for 10.0.2.2 at 2019-07-13 06:41:39 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   
@@ -641,6 +805,7 @@ Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
   [1m[35m (6.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190713033531)[0m
   ↳ db/schema.rb:13
   [1m[35m (7.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+>>>>>>> develop
 (20190713033023),
 (20190713032819),
 (20190713032452),
@@ -655,6 +820,89 @@ Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
 
 [0m
   ↳ db/schema.rb:13
+<<<<<<< HEAD
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-13 06:36:50.197184"], ["updated_at", "2019-07-13 06:36:50.197184"]]
+  ↳ db/schema.rb:13
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "cartitems"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "cartitems" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "buy_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "discs"[0m
+  ↳ db/schema.rb:46
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "discs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "products_id" integer, "disc_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:46
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres"[0m
+  ↳ db/schema.rb:53
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "genre" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:53
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "labels"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "genre_id" integer, "label_id" integer, "artist_id" integer, "cd_title" varchar, "notax_price" integer, "stock" integer, "stock_status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "sell_details"[0m
+  ↳ db/schema.rb:77
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "sell_details" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Sell_id" integer, "products_id" integer, "sell_num" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:77
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "sells"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "sells" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pay" integer, "ship_address" varchar, "ship_tel" varchar, "ship_code" varchar, "ship_name" varchar, "ship_cost" integer, "total" integer, "status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "ships"[0m
+  ↳ db/schema.rb:99
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "ships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "address" varchar, "tel" varchar, "code" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:99
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:109
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "disc_id" integer, "track_num" integer, "song" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:109
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:117
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "last_name" varchar, "first_name" varchar, "last_kana" varchar, "first_kana" varchar, "zip_code" varchar, "address" varchar, "tel" varchar, "member_status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:117
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:117
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:117
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190713033531)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (12.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+=======
   [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   ↳ db/schema.rb:13
   [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
@@ -736,6 +984,7 @@ Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
   [1m[35m (7.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190713033531)[0m
   ↳ db/schema.rb:13
   [1m[35m (5.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+>>>>>>> develop
 (20190713033023),
 (20190713032819),
 (20190713032452),
@@ -750,6 +999,38 @@ Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
 
 [0m
   ↳ db/schema.rb:13
+<<<<<<< HEAD
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (5.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-13 06:36:50.412262"], ["updated_at", "2019-07-13 06:36:50.412262"]]
+  ↳ db/schema.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (4.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-07-13 06:36:50.429820"], ["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+=======
   [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   ↳ db/schema.rb:13
   [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
@@ -838,3 +1119,4 @@ Completed 500 Internal Server Error in 139ms (ActiveRecord: 0.0ms)
 NoMethodError (undefined method `　　　' for #<AdminUsersController:0x0000561a30d5a278>):
   
 app/controllers/admin_users_controller.rb:3:in `index'
+>>>>>>> develop
