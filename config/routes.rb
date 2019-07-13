@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_for :admins
+
   resources :orders
   resources :users
   resources :cart_items
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :admin_order
   resources :admin_products
   resources :admin_users
-  devise_for :admins
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
