@@ -4322,3 +4322,177 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 287ms (Views: 269.0ms | ActiveRecord: 2.4ms)
 
 
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:52:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+　end
+      ^):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:53:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:53:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:53:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:53:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:26: syntax error, unexpected end-of-input, expecting keyword_end
+  end
+     ^):
+  
+app/controllers/admin_products_controller.rb:26: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:53:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:26: syntax error, unexpected end-of-input, expecting keyword_end
+  end
+     ^):
+  
+app/controllers/admin_products_controller.rb:26: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:54:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:54:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/nagareco/app/controllers/admin_products_controller.rb:28: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/admin_products_controller.rb:28: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:54:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (31.2ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `image_attachment_definition' for #<Product:0x000055ffafb6a9e0>):
+     9:     <%= f.text_area :cd_title %>
+    10: 
+    11:     <h4>ジャケット画像</h4>
+    12:     <%= f.attachment_field :image %>
+    13: 
+    14:     <h4>価格（税別価格）</h4>
+    15:     <%= f.text_area :notax_price %>
+  
+app/views/admin_products/new.html.erb:12:in `block in _app_views_admin_products_new_html_erb___4521619601453663446_47278330064180'
+app/views/admin_products/new.html.erb:3:in `_app_views_admin_products_new_html_erb___4521619601453663446_47278330064180'
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:54:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `image_attachment_definition' for #<Product:0x00007f3b385adbe0>):
+     9:     <%= f.text_area :cd_title %>
+    10: 
+    11:     <h4>ジャケット画像</h4>
+    12:     <%= f.attachment_field :image %>
+    13: 
+    14:     <h4>価格（税別価格）</h4>
+    15:     <%= f.text_area :notax_price %>
+  
+app/views/admin_products/new.html.erb:12:in `block in _app_views_admin_products_new_html_erb___4521619601453663446_69946162635640'
+app/views/admin_products/new.html.erb:3:in `_app_views_admin_products_new_html_erb___4521619601453663446_69946162635640'
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:56:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `image_attachment_definition' for #<Product:0x00007f3b2c041e88>):
+     9:     <%= f.text_area :cd_title %>
+    10: 
+    11:     <h4>ジャケット画像</h4>
+    12:     <%= f.attachment_field :image %>
+    13: 
+    14:     <h4>価格（税別価格）</h4>
+    15:     <%= f.text_area :notax_price %>
+  
+app/views/admin_products/new.html.erb:12:in `block in _app_views_admin_products_new_html_erb___4521619601453663446_69946059130060'
+app/views/admin_products/new.html.erb:3:in `_app_views_admin_products_new_html_erb___4521619601453663446_69946059130060'
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:56:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `image_attachment_definition' for #<Product:0x00007f3b245900b8>):
+     9:     <%= f.text_area :cd_title %>
+    10: 
+    11:     <h4>ジャケット画像</h4>
+    12:     <%= f.attachment_field :image %>
+    13: 
+    14:     <h4>価格（税別価格）</h4>
+    15:     <%= f.text_area :notax_price %>
+  
+app/views/admin_products/new.html.erb:12:in `block in _app_views_admin_products_new_html_erb___4521619601453663446_69945994794420'
+app/views/admin_products/new.html.erb:3:in `_app_views_admin_products_new_html_erb___4521619601453663446_69945994794420'
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:56:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `image_attachment_definition' for #<Product:0x000055ffb017c590>):
+     9:     <%= f.text_area :cd_title %>
+    10: 
+    11:     <h4>ジャケット画像</h4>
+    12:     <%= f.attachment_field :image %>
+    13: 
+    14:     <h4>価格（税別価格）</h4>
+    15:     <%= f.text_area :notax_price %>
+  
+app/views/admin_products/new.html.erb:12:in `block in _app_views_admin_products_new_html_erb___4521619601453663446_47278329663000'
+app/views/admin_products/new.html.erb:3:in `_app_views_admin_products_new_html_erb___4521619601453663446_47278329663000'
+Started GET "/admin_products/new" for 10.0.2.2 at 2019-07-14 04:56:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AdminProductsController#new as HTML
+  Rendering admin_products/new.html.erb within layouts/application
+  Rendered admin_products/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 2484ms (Views: 2435.3ms | ActiveRecord: 5.9ms)
+
+
