@@ -5,4 +5,5 @@ class Product < ApplicationRecord
 
 	has_many :discs, dependent: :destroy
 	has_many :cartitems, dependent: :destroy
+	attachment :image
 end
