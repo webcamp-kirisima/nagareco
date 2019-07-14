@@ -26,51 +26,22 @@
 
     <% if user_signed_in? %>
 
-    <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to products_path  do%>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
-        <%end%>
-      </li>
-
-      <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to user_path(current_user.id)  do%>
-        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
-        <%end%>
-     </li>
-
-     <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to cart_items_path do%>
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> カート
-        <%end%>
-     </li>
+        <%= link_to products_path  do%>Top画面<%end%>
 
 
-      <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to destroy_user_session_path, method: :delete do%>
-        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
-        <%end%>
-      </li>
+        <%= link_to user_path(current_user.id)  do%> Home<%end%>
+
+        <%= link_to cart_items_path do%>カート<%end%>
+
+        <%= link_to destroy_user_session_path, method: :delete do%> Logout<%end%>
 
     <% else %>
 
-    <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to products_path  do%>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
-        <%end%>
-      </li>
+        <%= link_to products_path  do%> Top画面<%end%>
 
+        <%= link_to new_user_registration_path  do%> Sign up<%end%>
 
-      <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to new_user_registration_path  do%>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Sign up
-        <%end%>
-      </li>
-
-      <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to new_user_session_path  do%>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Log in
-        <%end%>
-      </li>
+        <%= link_to new_user_session_path  do%> Log in<%end%>
 
    <% end %>
 
@@ -92,7 +63,7 @@
     </div>
 
    <footer>
-      <p class="text-right" style=" padding-right: 20%;">
+      <p class="text-right">
       CopyRight Nagareco.inc
       </p>
     </footer>
