@@ -1,17 +1,20 @@
-<li class=""style="color:white; padding-left: 5px;">
-        <%= link_to products_path  do%>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
-        <%end%>
-      </li>
+<div class="container">
+        <div class="row">
+          <div class="col-lg-3" style="background-color: lightblue;">
+            <%= link_to new_admin_product_path do%> 商品の新規登録<%end%>
+          </div>
 
-      <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to user_path(current_user.id)  do%>
-        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
-        <%end%>
-     </li>
+          <div class="col-lg-3" style="background-color: yellowgreen;">
+            <%= link_to orders_path do%> 注文管理一覧<%end%>
+          </div>
 
-     <li class=""style="color:white; padding-left: 5px;">
-        <%= link_to cart_items_path do%>
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> カート
-        <%end%>
-     </li>
+          <div class="col-lg-3" style="background-color: orange;">
+            <%= link_to products_path  do%> 商品一覧<%end%>
+          </div>
+
+          <div class="col-lg-3" style="background-color: pink;">
+            <%= link_to admin_users_path  do%> ユーザー一覧<%end%>
+         </div>
+
+    </div>
+</div>
