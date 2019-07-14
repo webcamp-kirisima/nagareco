@@ -33,11 +33,15 @@
 
         <%= link_to cart_items_path do%>カート<%end%>
 
+        <%= link_to about_path do%>アバウト<%end%>
+
         <%= link_to destroy_user_session_path, method: :delete do%> Logout<%end%>
 
     <% else %>
 
         <%= link_to products_path  do%> Top画面<%end%>
+
+        <%= link_to about_path do%>アバウト<%end%>
 
         <%= link_to new_user_registration_path  do%> Sign up<%end%>
 
