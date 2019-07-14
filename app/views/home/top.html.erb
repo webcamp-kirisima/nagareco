@@ -1,0 +1,17 @@
+<li class=""style="color:white; padding-left: 5px;">
+        <%= link_to products_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
+        <%end%>
+      </li>
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to user_path(current_user.id)  do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+        <%end%>
+     </li>
+
+     <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to cart_items_path do%>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> カート
+        <%end%>
+     </li>
