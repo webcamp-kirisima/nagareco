@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nagareco</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nagareco</title>
   </head>
 
   <body>
+
+    <div class="header" id="header">
+      <nav class="navbar navbar-main navbar-inverse" role="navigation" id="slide-nav">
+        <div class="container relative">
+          <div class="navbar-header">
+            <a class="navbar-brand" style="font-size: 20px;
+    padding-top: 5px;">Nagoreco</a>
+          </div>
+          <div id="slidemenu">
+  <ul class="nav navbar-nav navbar-right" >
+
+
+    <% if user_signed_in? %>
+
+    <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to products_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
+        <%end%>
+      </li>
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to user_path(current_user.id)  do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+        <%end%>
+     </li>
+
+     <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to cart_items_path do%>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> カート
+        <%end%>
+     </li>
+
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to destroy_user_session_path, method: :delete do%>
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+        <%end%>
+      </li>
+
+    <% else %>
+
+    <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to products_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Top画面
+        <%end%>
+      </li>
+
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to new_user_registration_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Sign up
+        <%end%>
+      </li>
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to new_user_session_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Log in
+        <%end%>
+      </li>
+
+   <% end %>
+
+ </div>
+
+  </ul>
+</div>
+        </div>
+        </div>
+      </nav>
+    </div>
+
     <%= yield %>
+
+    <div class="clearfix">
+    <div class="col-sm-3 col-md-2 sidebar">
+
+　　</div>
+    </div>
+
+   <footer>
+      <p class="text-right" style=" padding-right: 20%;">
+      CopyRight Nagareco.inc
+      </p>
+    </footer>
+
   </body>
 </html>
