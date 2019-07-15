@@ -38,20 +38,14 @@
         <br>
         <%= f.text_field :stock, size: "5", class: "form-control" %>
     </div>
-    <div>
-      <div class="discs">
-        <%= f.fields_for  :discs do |d| %>
-          <div class="form-group>"
-          <%= d.label :ディスク枚数 %>
-          <%= d.select :disc_num,  [1,2,3,4,5], class: "form-control" %>
-          </div>
-        <% end %>
+      <div>
+          <%= f.label :ディスク枚数 %>
+          <%= f.text_field :disc_num,  [1,2,3,4,5], class: "form-control" %>
         </div>
-    </div>
     <div>
         <%= f.label :曲名 %>
         <br>
-        <%= f.text_field :stock, class: "form-control" %>
+        <%= f.text_field :song, class: "form-control" %>
     </div>
     <div>
        <br>

@@ -1,7 +1,7 @@
 class AdminProductsController < ApplicationController
   def new
     @product = Product.new
-    @disc = @product.discs.build
+    @product.discs.build
   end
 
   def index
