@@ -1,8 +1,32 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
 
-<div class="body">
-<div class="row">
-	<head>
-		<title>TOP.index</title>
-	</head>
+
+
+<div class="container col-12"><!-- スライドショー -->
+	<div class="row">
+</div>
+</div>
+
+
+		<div class="container col-8"><!-- 商品一覧 -->
+			<% @products.each do |product| %>
+			<div class="row col-8">
+			<% attachment_image_tag @product, :image_id, :fill, 200, 200, size: '50x50' %>
+			<table>
+				<tr>
+					<th>アルバム名：</th><th rowspan="2"><%= products.cd_title %></th>
+				</tr>
+				<tr>
+					<td>アーティスト：</td><td rowspan="2"><%= artist(artist_id) %><!-- アーティスト -->
+				</tr>
+				<tr>
+				<td>税込価格：</td><td><%=notax_price %><td><%=link_to "詳細", product_path(product)%></td>
+				</tr>
+			<% end %>
+		</div>
+
+
+		<div class="container"><!-- サイドバー -->
+    		<div class="row">
+
+      <table class="table">
+
