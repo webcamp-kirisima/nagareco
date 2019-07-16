@@ -15,6 +15,7 @@ class AdminProductsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update

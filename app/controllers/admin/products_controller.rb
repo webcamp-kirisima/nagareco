@@ -1,5 +1,5 @@
-class ProductsController < ApplicationController
-  def new
+class Admin::ProductsController < ApplicationController
+def new
     @product = Product.new
   end
 
