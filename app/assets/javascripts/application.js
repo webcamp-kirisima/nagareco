@@ -31,7 +31,7 @@ var title = "jsが使えました";
  	console.log($(window))
  	$(".theTarget").skippr({
  		transition : 'slide',
- 		speed : 1,
+ 		speed : 1000,
  		easing : 'easeOutQuart',
  		navType : 'block',
  		childrenElementType : 'div',
