@@ -18,9 +18,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-var title = "jsが使えました";
- // alert(title);
-
  $(document).ready(function(){
  	$('.jquery').on('click',function(){
  		$(this).css('color','red');
@@ -31,7 +28,7 @@ var title = "jsが使えました";
  	console.log($(window))
  	$(".theTarget").skippr({
  		transition : 'slide',
- 		speed : 1,
+ 		speed : 1000,
  		easing : 'easeOutQuart',
  		navType : 'block',
  		childrenElementType : 'div',
