@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  
+
   devise_for :users
   devise_for :admins
 
@@ -6,9 +9,13 @@ Rails.application.routes.draw do
   resources :users
   resources :cart_items
   resources :products
-  resources :admin_order
-  resources :admin_products
-  resources :admin_users
+
+  namespace :admin do
+    resources :products
+    resources :users
+    resources :orders
+
+  end
 
   root to: 'products#index'
   get 'top' => 'products#top'
