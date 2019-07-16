@@ -1,2 +1,34 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>商品詳細</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @products.each do |product| %>
+
+    <tr>
+<div class="container">
+      <div class="row">
+        <div class="col-lg-3" >
+
+      <td><div class="form-group has-icon">
+       <div class="user-profile-image">
+        <%= attachment_image_tag product.id, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+       </div>
+     </div>
+      </div></td>
+      <div class="col-lg-9" >
+      <td style="width:100%"><%= link_to book.title, book_path(book.id) %></td>
+      <td style="width:100%"><%= book.body %></td>
+    </div>
+</div>
+</div>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

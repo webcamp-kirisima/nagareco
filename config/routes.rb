@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :admin_users
 
   root to: 'products#index'
-  # get 'top' => 'home#top'
+  get 'top' => 'products#top'
+  get 'about' => 'products#about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
