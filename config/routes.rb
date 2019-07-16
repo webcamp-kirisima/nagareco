@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'products#index'
-  get 'top' => 'products#top'
-  get 'about' => 'products#about'
+  get 'top' => 'home#top'
+  get 'about' => 'home#about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
