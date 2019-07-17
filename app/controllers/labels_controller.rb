@@ -4,7 +4,7 @@ class LabelsController < ApplicationController
   end
 
   def create
-    @label = label.new(label_params)
+    @label = Label.new(label_params)
     @label.save
   end
 
