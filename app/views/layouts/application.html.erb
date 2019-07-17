@@ -19,10 +19,30 @@
       </button>
 
   <div class="collapse navbar-collapse" id="Navber">
-    <% if user_signed_in? %>
+    <% if admin_signed_in? %>
       <ul class="navbar-nav mr-auto">
         <li class="mr-2">
-          <%= link_to top_path do%>Top画面<%end%>
+          <%= link_to root_path do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to user_path(current_user.id) do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to cart_items_path do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to about_path do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to destroy_user_session_path, method: :delete do%>管理者<%end%>
+        </li>
+    <% elsif user_signed_in? %>
+         <li class="mr-2">
+          <%= link_to root_path do%>Top画面<%end%>
         </li>
 
         <li class="mr-2">
@@ -41,31 +61,10 @@
           <%= link_to destroy_user_session_path, method: :delete do%>ログアウト<%end%>
         </li>
 
-    <% elsif admin_signed_in?%>
-        <li class="mr-2">
-          <%= link_to top_path do%>管理者<%end%>
-        </li>
-
-        <li class="mr-2">
-          <%= link_to user_path(current_user.id) do%>管理者<%end%>
-        </li>
-
-        <li class="mr-2">
-          <%= link_to cart_items_path do%>管理者<%end%>
-        </li>
-
-        <li class="mr-2">
-          <%= link_to about_path do%>管理者<%end%>
-        </li>
-
-        <li class="mr-2">
-          <%= link_to destroy_user_session_path, method: :delete do%>管理者<%end%>
-        </li>
-
     <% else %>
 
         <li class="mx-2">
-          <%= link_to top_path do %>Top画面<%end%>
+          <%= link_to root_path do %>Top画面<%end%>
         </li>
 
         <li class="mr-2">
