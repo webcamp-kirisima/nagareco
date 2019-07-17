@@ -19,12 +19,6 @@
 //= require_tree .
 
  $(document).ready(function(){
- 	$('.jquery').on('click',function(){
- 		$(this).css('color','red');
- 	});
- });
-
- $(document).ready(function(){
  	console.log($(window))
  	$(".theTarget").skippr({
  		transition : 'slide',
