@@ -24,6 +24,7 @@ class UsersController < ApplicationController
      user = User.find(params[:id])
      if user.destroy
         redirect_to root_path
+     end
   end
 
   private
