@@ -1,3 +1,4 @@
 class Disc < ApplicationRecord
-	belongs_to :song
+	belongs_to :product
+	has_many :songs
 end
