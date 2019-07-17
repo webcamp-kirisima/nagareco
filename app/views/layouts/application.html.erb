@@ -13,76 +13,71 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Nagareco</a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" >
-    <nav class="nav navbar-nav navbar-right" >
-  </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom:80px;">
+      <a class="navbar-brand" href="#" style="font-size:32px;">Nagareco</a>
+      <button type="button" class="navbar-toggler fas fa-outdent navbar-dark" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" style="color:white;" >
+      </button>
 
   <div class="collapse navbar-collapse" id="Navber">
     <% if user_signed_in? %>
-    <ul class="navbar-nav mr-auto">
-      <li class="">
-        <%= link_to products_path  do%>Top画面<%end%>
+      <ul class="navbar-nav mr-auto">
+        <li class="mr-2">
+          <%= link_to products_path  do%>Top画面<%end%>
         </li>
 
-        <li class="">
-        <%= link_to user_path(current_user.id)  do%>Home<%end%>
+        <li class="mr-2">
+          <%= link_to user_path(current_user.id)  do%>Home<%end%>
         </li>
 
-        <li class="">
-        <%= link_to cart_items_path do%>カート<%end%>
+        <li class="mr-2">
+          <%= link_to cart_items_path do%>カート<%end%>
         </li>
 
-        <li class="">
-        <%= link_to about_path do%>アバウト<%end%>
+        <li class="mr-2">
+          <%= link_to about_path do%>アバウト<%end%>
         </li>
 
-        <li class="">
-        <%= link_to destroy_user_session_path, method: :delete do%>   Logout<%end%>
+        <li class="mr-2">
+          <%= link_to destroy_user_session_path, method: :delete do%>Logout<%end%>
         </li>
 
     <% else %>
 
-        <li class="">
-        <%= link_to products_path  do%> Top画面<%end%>
+        <li class="mx-2">
+          <%= link_to products_path do %> Top画面<%end%>
         </li>
 
-        <li class="">
-        <%= link_to about_path do%>アバウト<%end%>
+        <li class="mr-2">
+          <%= link_to about_path do %>アバウト<%end%>
         </li>
 
-        <li class="">
-        <%= link_to new_user_registration_path  do%> Sign up<%end%>
+        <li class="mr-2">
+          <%= link_to new_user_registration_path do %> Sign up<%end%>
         </li>
 
-        <li class="">
-        <%= link_to new_user_session_path  do%> Log in<%end%>
+        <li class="mr-2">
+          <%= link_to new_user_session_path do %> Log in<%end%>
         </li>
-
-   <% end %>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
-    </form>
+      </ul>
+    <% end %>
   </div>
+      <%= search_form_for @search, url: products_path, class: "form-inline my-2 my-lg-0 ml-auto" do |f| %>
+        <%= f.text_field :cd_title_cont, class: "form-control mr-sm-2" %>
+        <%= f.submit "検索", class: "btn btn-outline-light my-2 my-sm-0"  %>
+      <% end %>
+
+
 </nav>
 
     <%= yield %>
 
-    <div class="clearfix">
-
-　　</div>
-    </div>
 
 
-   <footer>
+   <footer class="bg-dark " style="margin-top:30px; height:50px; color: white">
       <p class="text-right">
       CopyRight Nagareco.inc
       </p>
-    </footer>
+   </footer>
 
   </body>
 </html>
-<

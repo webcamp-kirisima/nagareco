@@ -1,4 +1,4 @@
-<div class="container col-12">
+<div class="container col-12 clearfix">
   <div class="container col-10">
 	<table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
 		<tr>
@@ -33,6 +33,6 @@
 		</tr>
 
 	</table>
-        <div class="btn btn-danger btn-block col-3 float-right">退会機能</div>
+	<%= link_to "退会機能", user_path(@user), class: "btn btn-danger col-3 float-right", method: :delete, "data-confirm" => "本当に退会しますか？" %></td>
   </div>
 </div>
