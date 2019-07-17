@@ -2,6 +2,7 @@ class AdminProductsController < ApplicationController
   def new
     @product = Product.new
     @product.discs.build
+    @product.songs.build
   end
 
   def index
@@ -23,6 +24,8 @@ class AdminProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:artist, :cd_title, :image, :notax_price, :label, :genre, :stock, :disc_num )
+    params.require(:product).permit(:artist, :cd_title, :image, :notax_price, :label, :genre, :stock,
+                                                         discs_attributes: [:id, :disc_num, :_destroy,
+                                                          songs_attributes:[:id,:track_num, :_destroy]] )
   end
 end
