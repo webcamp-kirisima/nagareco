@@ -1,5 +1,18 @@
 <div class="container">
   <div class="row">
+
+    <%= form_for(@artist) do |a| %>
+      <div class="form-group">
+        <%= :アーティスト名 %><br>
+        <%= a.collection_select :artist_id, Artist.all, :id, :label, :prompt => "アーティスト名を入力してください" %>
+      </div>
+    <% end %>
+
+    <%= form_for(@label) do |l| %>
+    <%= l.label :レーベル名 %><br>
+    <%= l.collection_select :label_id, Label.all, :id, :label, :prompt => "レーベルを選択してください" %>
+    <% end %>
+
    <div>
 
       <h1>商品新規登録</h1>
