@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <%= :アーティスト名 %><br>
-          <%= f.collection_select :artist_id, Artist.all, :id, :label, :prompt => "アーティスト名を入力してください" %>
+          <%= f.collection_select :artist_id, Artist.all, :id, :artist, :prompt => "アーティスト名を入力してください" %>
         </div>
 
         <div class="form-group">
