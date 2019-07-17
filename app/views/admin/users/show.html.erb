@@ -1,0 +1,41 @@
+<div class="container col-12">
+  <div class="container col-10">
+	<table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
+		<tr>
+			<th style="width:30%">アカウント情報</th>
+			<td style="width:40%">アカウント情報やパスワードの変更ができます</td>
+		    <td style="width:30%"><%= link_to "アカウント管理", edit_admin_user_path, class: "btn btn-info btn-block" %></td>
+
+	<table  border="1" bordercolor="#4682B4" cellpadding="25" style="width:100%; border-collapse:separate;">
+		<tr>
+			<th style="width:30%">名前</th>
+			<td style="width:70%"><%= @user.last_name %> <%= @user.first_name%></td>
+		</tr>
+        <tr>
+			<th>フリガナ</th>
+			<td><%= @user.last_kana %> <%=@user.first_kana %></td>
+		</tr>
+		<tr>
+			<th>郵便番号</th>
+			<td><%= @user.zip_code %></td>
+		</tr>
+		<tr>
+			<th>住所</th>
+			<td><%= @user.address %></td>
+		</tr>
+		<tr>
+			<th>電話番号</th>
+			<td><%= @user.tel %></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<th>パスワード</th>
+			<td><%= @user.password %></td>
+		</tr>
+	</table>
+	<%= link_to "退会機能", user_path(@user), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に退会しますか？" %></td>
+  </div>
+</div>

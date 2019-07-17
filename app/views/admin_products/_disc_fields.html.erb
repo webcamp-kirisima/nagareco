@@ -1,0 +1,18 @@
+<div class="nested-fields">
+
+  <div class="form-group">
+    <%= f.label :'ディスクNo.' %>
+    <%= f.select :disc_num, [1,2,3], class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.fields_for :songs do |d| %>
+      <%= render "song_fields", f: d %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to_add_association "曲を追加", f, :songs %>
+  </div>
+
+</div>

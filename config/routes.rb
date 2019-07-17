@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  
+
   devise_for :users
   devise_for :admins
 
@@ -6,13 +9,17 @@ Rails.application.routes.draw do
   resources :users
   resources :cart_items
   resources :products
-  resources :admin_order
-  resources :admin_products
-  resources :admin_users
+
+  namespace :admin do
+    resources :products
+    resources :users
+    resources :orders
+
+  end
 
   root to: 'products#index'
-  get 'top' => 'products#top'
-  get 'about' => 'products#about'
+  get 'top' => 'home#top'
+  get 'about' => 'home#about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
