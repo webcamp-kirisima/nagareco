@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     @artist.save
-    redirect_to :back
+    redirect_to new_admin_product_path(current_user)
   end
 
   private

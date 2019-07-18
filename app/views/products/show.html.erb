@@ -20,11 +20,11 @@
                 </tr>
               <tr>
                 <td>アーティスト：</td>
-                <td><%=  %></td>
+                <td><%= products.artist_id%></td>
               </tr>
               <tr>
                   <td>レーベル：</td>
-                  <td><%= %></td>
+                  <td><%=products.notax_price %></td>
               </tr>
                <tr>
                   <td>ステータス：</td>
@@ -36,7 +36,7 @@
               </tr>
               <tr>
                 <td>税込価格：</td>
-                <td><%= %></td>
+                <td><%=p.notax_price %></td>
               </tr>
         </table>
       </div>
