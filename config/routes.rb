@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
 
   devise_for :users
   devise_for :admins
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :users
   resources :cart_items
   resources :products
+  resources :artists
+  resources :label
 
   namespace :admin do
     resources :products

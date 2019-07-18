@@ -23,10 +23,9 @@ class Admin::ProductsController < ApplicationController
   def update
   end
 
-  private
   def product_params
-    params.require(:product).permit(:artist, :cd_title, :image, :notax_price, :label, :genre, :stock,
+    params.require(:product).permit(:artist_id, :image_id, :label_id, :genre_id, :cd_title, :notax_price, :stock,
                                                          discs_attributes: [:id, :disc_num, :_destroy,
-                                                          songs_attributes:[:id,:track_num, :_destroy]] )
+                                                          songs_attributes:[:id, :track_num, :song, :_destroy],] )
   end
   end
