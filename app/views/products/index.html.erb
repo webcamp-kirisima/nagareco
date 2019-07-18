@@ -8,11 +8,17 @@
  	</div>
 </div>
 
+
 <div class="container"><!-- スライドショー -->
 	<div class="row">
 		<% @products.each do |p| %>
 				<div class="col-3">
+<<<<<<< HEAD
 					<%= p.attachment_image_tag product, :image, :fill, 50, 50, size: '50x50' %></div>
+=======
+				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg' %>
+				</div>
+>>>>>>> develop
 					<div class="col-5">
 						<table>
 							<tr>
@@ -27,8 +33,13 @@
 							</tr>
 							<tr>
 								<td>税込価格：</td>
+<<<<<<< HEAD
 								<td><%=(p.notax_price * 108/100.0).ceil %></td>
 								<td><%=link_to "詳細", product_path(p.id)%></td>
+=======
+								<td><%=p.notax_price %></td>
+								<td><%= link_to "詳細",  product_path(p.id) %></td>
+>>>>>>> develop
 							</tr>
 						</table>
 					</div>
@@ -45,7 +56,12 @@
 						<td>アーティスト名：</td>
 						<td><%= %></td>
 					</tr>
+<<<<<<< HEAD
 				</table>
+=======
+				</table> -->
+
+>>>>>>> develop
 			</div>
 		</div>
 	</div>
