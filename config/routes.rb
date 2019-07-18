@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :labels
 
+
   namespace :admin do
     resources :products
     resources :users
