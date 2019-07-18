@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'genre/new'
+  get 'genre/create'
   devise_for :users
   devise_for :admins
 
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   resources :products
   resources :artists
   resources :labels
+  resources :genres
 
   namespace :admin do
     resources :products

@@ -12,6 +12,10 @@
       <%= link_to "レーベルを追加", new_label_path %>
       </div>
 
+      <div>
+      <%= link_to "ジャンルを追加", new_genre_path %>
+      </div>
+
       <%= form_for(@product, url: admin_products_path) do |f| %>
         <div class="form-group">
           <%= f.label :"シングル/アルバム名" %>
@@ -25,7 +29,7 @@
 
         <div class="form-group">
             <%= f.label :ジャケット画像  %><br>
-            <%= f.attachment_field :image_id %>
+            <%= f.attachment_field :image %>
         </div>
 
        <div class="form-group">
