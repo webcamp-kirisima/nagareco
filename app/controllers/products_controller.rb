@@ -16,19 +16,12 @@ class ProductsController < ApplicationController
   end
 
   def show
+  	@products = products.find(params[:id])
   end
 
-  def edit
 
-  end
-
-  def update
-  end
-
-  private
-  def product_params
-    params.require(:product).permit(:artist, :cd_title, :image, :notax_price, :label, :genre, :stock,
-                                                         discs_attributes: [:id, :disc_num, :_destroy,
-                                                          songs_attributes:[:id,:track_num, :_destroy]] )
+private
+  def products_params
+    params.require(:product).permit(:artist_id, :cd_title, :image, :notax_price, :label, :genre, :stock )
   end
 end
