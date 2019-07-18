@@ -6,6 +6,7 @@ class LabelsController < ApplicationController
   def create
     @label = Label.new(label_params)
     @label.save
+    redirect_to :back
   end
 
   private
