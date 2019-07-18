@@ -9,10 +9,9 @@
 </div>
 
 <div class="container"><!-- スライドショー -->
+	<div class="row">
 		<% @products.each do |p| %>
-			<div class="row">
 				<div class="col-3">
-				<%= p.attachment_image_tag product, :image, :fill, 50, 50, size: '50x50' %>
 				</div>
 					<div class="col-5">
 						<table>
@@ -23,22 +22,19 @@
 							</tr>
 							<tr>
 								<td>アーティスト：</td>
-								<td><%= p.artist_id %></td><!-- アーティスト -->
+								<td><%= p.artist.artist %></td><!-- アーティスト -->
 								<td></td>
 							</tr>
 							<tr>
 								<td>税込価格：</td>
-								<td><%=p.notax_price %></td>
-								<td><%=link_to "詳細", product_path(product.id)%></td>
+								<td><%=(p.notax_price * 108/100.0).ceil %></td>
 							</tr>
 						</table>
 					</div>
-				</div>
 		<% end %>
-		<div class="row"><!-- サイドバー -->
-			<div class="col-4">
-				<!-- <h2>管理人おすすめ</h2>
-				<%= attachment_image_tag @product, :image_id, :fill, 200, 200, size: '50x50' %>
+		<dev class="row">
+		<div class="col-12"><!-- サイドバー -->
+				<h4>管理人おすすめ</h4>
 				<table>
 					<tr>
 						<th>アルバム名：</th>
@@ -48,7 +44,8 @@
 						<td>アーティスト名：</td>
 						<td><%= %></td>
 					</tr>
-				</table> -->
+				</table>
 			</div>
 		</div>
+	</div>
 </div>

@@ -20,23 +20,25 @@
                 </tr>
               <tr>
                 <td>アーティスト：</td>
-                <td><%= products.artist_id%></td>
+                <td><%= products.artist.artist%></td>
               </tr>
               <tr>
                   <td>レーベル：</td>
-                  <td><%=products.notax_price %></td>
+                  <td><%=products.label.label%></td>
               </tr>
                <tr>
                   <td>ステータス：</td>
-                  <td><%= %></td>
+                  <td>
+                    
+                  </td>
               </tr>
                <tr>
                   <td>ジャンル：</td>
-                  <td><%= %></td>
+                  <td><%= products.genre.genre%></td>
               </tr>
               <tr>
                 <td>税込価格：</td>
-                <td><%=p.notax_price %></td>
+                <td><%=(p.notax_price * 108/100.0).ceil %> </td>
               </tr>
         </table>
       </div>
