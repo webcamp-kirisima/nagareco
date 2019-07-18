@@ -1,46 +1,13 @@
 <div class="container">
+  <%= @products.each do |c| %>
     <div class="row">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ジャケット画像</th>
-            <th scope="col">商品情報</th>
-            <th scope="col">在庫情報</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr scope="row">
-            <th> <img src="" alt=""> </th>
-            <td>商品情報</td>
-            <th>2</th>
-            <th><a href="#">詳細</a></th>
-          </tr>
-          <tr scope="row">
-            <th> <img src="" alt=""> </th>
-            <td>商品情報</td>
-            <th>2</th>
-            <th><a href="#">詳細</a></th>
-          </tr>
-          <tr scope="row">
-            <th> <img src="" alt=""> </th>
-            <td>商品情報</td>
-            <th>2</th>
-            <th><a href="#">詳細</a></th>
-          </tr>
-          <tr scope="row">
-            <th> <img src="" alt=""> </th>
-            <td>商品情報</td>
-            <th>2</th>
-            <th><a href="#">詳細</a></th>
-          </tr>
-          <tr scope="row">
-            <th> <img src="" alt=""> </th>
-            <td>商品情報</td>
-            <th>2</th>
-            <th><a href="#">詳細</a></th>
-          </tr>
-        </tbody>
-      </table>
+        <div class="col-2 image">イメージ画像</div>
+        <div class="col-2 cd_name"><%= c.cd_title %></div>
+        <div class="col-2 artist"><%= c.artist %></div>
+        <div class="col-2 plice"><%= c.notax_price %></div>
+        <div class="col-2 status"><%= c.stock %></div>
+        <div class="col-2 link_cd"><%= link_to "商品詳細",product_path(c) %></div>
     </div>
+  <% end %>
 </div>
+
