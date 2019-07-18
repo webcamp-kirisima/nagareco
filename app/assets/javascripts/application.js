@@ -19,15 +19,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-var title = "jsが使えました";
- // alert(title);
-
- $(document).ready(function(){
- 	$('.jquery').on('click',function(){
- 		$(this).css('color','red');
- 	});
- });
-
  $(document).ready(function(){
  	console.log($(window))
  	$(".theTarget").skippr({
