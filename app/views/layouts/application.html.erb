@@ -23,7 +23,9 @@
       <ul class="navbar-nav mr-auto">
         <li class="mr-2">
 
+
           <%= link_to admin_top_path do%>管理者メニュー<%end%>
+
         </li>
 
         <li class="mr-2">
@@ -40,6 +42,7 @@
 
         <li class="mr-2">
           <%= link_to admin_products_path do%>注文一覧<%end%>
+
         </li>
 
         <li class="mr-2">
@@ -49,6 +52,7 @@
     <% elsif user_signed_in? %>
          <li class="mr-2">
           <%= link_to root_path do%>Top画面<%end%>
+
         </li>
 
         <li class="mr-2">
