@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="form-group">
+    <%= form_for(@label) do |f| %>
+      <%= f.label :"レーベル名" %>
+      <%= f.text_field :label, class: "form-control" %>
+      <%= f.submit '追加' %>
+    <% end %>
+  </div>
+</div>

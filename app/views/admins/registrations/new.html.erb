@@ -1,0 +1,31 @@
+<div class="container">
+  <table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
+    <h2>管理画面ログイン</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :パスワード %></th>
+        <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :確認用パスワード %></th>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><%= f.submit "アカウントを作成", class: "btn btn-primary btn-block" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="container">
+    <%= render "admins/shared/links" %>
+</div>

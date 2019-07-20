@@ -7,66 +7,107 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Nagareco</title>
   </head>
 
   <body>
 
-    <div class="header" id="header">
-      <nav class="navbar navbar-main navbar-inverse" role="navigation" id="slide-nav">
-        <div class="container relative">
-          <div class="navbar-header">
-            <a class="navbar-brand" style="font-size: 20px;
-    padding-top: 5px;">Nagoreco</a>
-          </div>
-          <div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom:80px;">
+      <a class="navbar-brand" href="#" style="font-size:32px;">Nagareco</a>
+      <button type="button" class="navbar-toggler fas fa-outdent navbar-dark" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" style="color:white;" >
+      </button>
 
-
+  <div class="collapse navbar-collapse" id="Navber">
     <% if user_signed_in? %>
+      <ul class="navbar-nav mr-auto">
+        <li class="mr-2">
 
-        <%= link_to products_path  do%>Top画面<%end%>
 
+          <%= link_to admin_top_path do%>管理者メニュー<%end%>
 
-        <%= link_to user_path(current_user.id)  do%> Home<%end%>
+        </li>
 
-        <%= link_to cart_items_path do%>カート<%end%>
+        <li class="mr-2">
+          <%= link_to new_admin_product_path do%>商品新規登録<%end%>
+        </li>
 
-        <%= link_to destroy_user_session_path, method: :delete do%> Logout<%end%>
+        <li class="mr-2">
+          <%= link_to admin_products_path do%>商品一覧<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to admin_users_path do%>ユーザー一覧<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to admin_products_path do%>注文一覧<%end%>
+
+        </li>
+
+        <li class="mr-2">
+          <%= link_to destroy_user_session_path, method: :delete do%>ログアウト<%end%>
+        </li>
+
+    <% elsif user_signed_in? %>
+         <li class="mr-2">
+          <%= link_to root_path do%>Top画面<%end%>
+
+        </li>
+
+        <li class="mr-2">
+          <%= link_to user_path(current_user.id) do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to cart_items_path do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to about_path do%>管理者<%end%>
+        </li>
+
+        <li class="mr-2">
+          <%= link_to destroy_user_session_path, method: :delete do%>管理者<%end%>
+        </li>
 
     <% else %>
 
-        <%= link_to products_path  do%> Top画面<%end%>
+        <li class="mx-2">
+          <%= link_to root_path do %>Top画面<%end%>
+        </li>
 
-        <%= link_to new_user_registration_path  do%> Sign up<%end%>
+        <li class="mr-2">
+          <%= link_to about_path do %>アバウト<%end%>
+        </li>
 
-        <%= link_to new_user_session_path  do%> Log in<%end%>
+        <li class="mr-2">
+          <%= link_to new_user_registration_path do %>アカウント作成<%end%>
+        </li>
 
-   <% end %>
+        <li class="mr-2">
+          <%= link_to new_user_session_path do %>ログイン<%end%>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+      <%= search_form_for @search, url: products_path, class: "form-inline my-2 ml-auto" do |f| %>
+        <%= f.text_field :cd_title_cont, class: "form-control mr-sm-2" %>
+        <%= f.submit "検索", class: "btn btn-outline-light my-2 my-sm-0"  %>
+      <% end %>
 
- </div>
 
-  </ul>
-</div>
-        </div>
-        </div>
-      </nav>
-    </div>
+</nav>
 
     <%= yield %>
 
-    <div class="clearfix">
-    <div class="col-sm-3 col-md-2 sidebar">
 
-　　</div>
-    </div>
 
-   <footer>
+   <footer class="bg-dark " style="margin-top:30px; height:50px; color: white">
       <p class="text-right">
       CopyRight Nagareco.inc
       </p>
-    </footer>
+   </footer>
 
   </body>
 </html>

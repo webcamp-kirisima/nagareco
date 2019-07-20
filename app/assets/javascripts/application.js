@@ -13,7 +13,24 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery
+//= require cocoon
 //= require popper
 //= require bootstrap-sprockets
+//= require_tree .
+
+ $(document).ready(function(){
+ 	console.log($(window))
+ 	$(".theTarget").skippr({
+ 		transition : 'slide',
+ 		speed : 1000,
+ 		easing : 'easeOutQuart',
+ 		navType : 'block',
+ 		childrenElementType : 'div',
+ 		arrows : true,
+ 		autoPlay : true,
+ 		autoPlayDuration : 3000,
+ 		keyboardOnAlways : true,
+ 		hidePrevious : false
+ 	});
+ });
