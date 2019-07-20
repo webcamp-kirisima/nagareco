@@ -15,7 +15,7 @@
 				<div class="col-3">
 				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 				</div>
-					<div class="col-5">
+					<div class="col-7">
 						<table>
 							<tr>
 								<th>アルバム名：</th>
@@ -29,17 +29,16 @@
 							</tr>
 							<tr>
 								<td>税込価格：</td>
-								<td><%=p.notax_price %></td>
-								<td><%= link_to "詳細",  product_path(p.id) %></td>
+								<td><%=(p.notax_price * 108/100.0).ceil %></td>
+								<td><%=link_to "詳細", product_path(p.id)%></td>
 							</tr>
 						</table>
 					</div>
-				</div>
+		</div>
 		<% end %>
-		<div class="row"><!-- サイドバー -->
-			<div class="col-4">
-				<!-- <h2>管理人おすすめ</h2>
-				<%= attachment_image_tag @product, :image_id, :fill, 200, 200, size: '50x50' %>
+		<dev class="row">
+			<div class="col-12"><!-- サイドバー -->
+				<h4>管理人おすすめ</h4>
 				<table>
 					<tr>
 						<th>アルバム名：</th>
@@ -49,8 +48,11 @@
 						<td>アーティスト名：</td>
 						<td><%= %></td>
 					</tr>
-				</table> -->
-
+				</table>
 			</div>
-		</div>
+	</div>
 </div>
+
+
+
+
