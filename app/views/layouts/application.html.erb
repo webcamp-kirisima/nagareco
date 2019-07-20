@@ -19,7 +19,7 @@
       </button>
 
   <div class="collapse navbar-collapse" id="Navber">
-    <% if user_signed_in? %>
+    <% if admin_signed_in? %>
       <ul class="navbar-nav mr-auto">
         <li class="mr-2">
 
@@ -56,19 +56,19 @@
         </li>
 
         <li class="mr-2">
-          <%= link_to user_path(current_user.id) do%>管理者<%end%>
+          <%= link_to user_path(current_user.id) do%>マイページ<%end%>
         </li>
 
         <li class="mr-2">
-          <%= link_to cart_items_path do%>管理者<%end%>
+          <%= link_to cart_items_path do%>カート<%end%>
         </li>
 
         <li class="mr-2">
-          <%= link_to about_path do%>管理者<%end%>
+          <%= link_to about_path do%>アバウト<%end%>
         </li>
 
         <li class="mr-2">
-          <%= link_to destroy_user_session_path, method: :delete do%>管理者<%end%>
+          <%= link_to destroy_user_session_path, method: :delete do%>ログアウト<%end%>
         </li>
 
     <% else %>
