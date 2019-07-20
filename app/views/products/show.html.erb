@@ -2,48 +2,48 @@
   <div class="row">
     <div class="col-12">
       <h1>商品詳細</h1>
-<<<<<<< HEAD
-    </div>
-  </div>
+
     <div class="row">
       <div class="col-5">
         <div class="user-profile-image"><!-- ジャケ写 -->
-          <%= attachment_image_tag @product, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+          <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg' %>
         </div>
       </div>
     </div>
-    <div class="row">
+
       <div class="col-7">
         <table>
               <tr>
                 <th>アルバム名：</th>
-                <th><%= products.cd_title %></th>
+                <th><%= @product.cd_title %></th>
                 </tr>
               <tr>
                 <td>アーティスト：</td>
-                <td><%= products.artist.artist%></td>
+                <td><%= @product.artist.artist%></td>
               </tr>
               <tr>
                   <td>レーベル：</td>
-                  <td><%=products.label.label%></td>
+                  <td><%= @product.label.label%></td>
               </tr>
                <tr>
+                <td>在庫数：</td>
+                <td><%=@product.stock %></td>
+              </tr>
+              <tr>
                   <td>ステータス：</td>
-                  <td>
+                  <td><%= if @product.stock = 0
+                    @product.stock > 0 ? "在庫なし" : "在庫あり" end%>
                   </td>
               </tr>
                <tr>
                   <td>ジャンル：</td>
-                  <td><%= products.genre.genre%></td>
+                  <td><%= @product.genre.genre%></td>
               </tr>
               <tr>
                 <td>税込価格：</td>
-                <td><%=(p.notax_price * 108/100.0).ceil %> </td>
+                <td><%=(@product.notax_price * 108/100.0).ceil %> </td>
               </tr>
         </table>
       </div>
     </div>
 </div>
-=======
-    
->>>>>>> develop
