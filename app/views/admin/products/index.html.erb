@@ -1,5 +1,5 @@
 <div class="container">
-  <%= @products.each do |c| %>
+  <% @products.each do |c| %>
     <div class="row">
 
         <div class="col-2 image"><%= attachment_image_tag c, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"%> </div>
