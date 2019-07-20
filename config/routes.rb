@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :labels
   resources :genres
 
-
   namespace :admin do
     resources :products
     resources :artists

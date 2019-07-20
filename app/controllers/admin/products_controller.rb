@@ -3,7 +3,6 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new
     @product.discs.build
     @product.songs.build
-    @product.product_images.build
   end
 
   def index
