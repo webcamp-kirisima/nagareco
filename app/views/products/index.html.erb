@@ -13,7 +13,7 @@
 		<% @products.each do |p| %>
 			<div class="row">
 				<div class="col-3">
-				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg' %>
+				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 				</div>
 					<div class="col-5">
 						<table>
