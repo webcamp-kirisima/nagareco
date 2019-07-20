@@ -6,8 +6,8 @@
   </div>
     <div class="row">
       <div class="col-5">
-        <div class="user-profile-image"><!-- ジャケ写 -->
-          <%= attachment_image_tag product.id, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+        <div class="user-profile-image">
+          <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
         </div>
       </div>
     </div>
@@ -16,15 +16,15 @@
         <table>
               <tr>
                 <th>アルバム名：</th>
-                <th><%= products.cd_title %></th>
+                <th><%= @product.cd_title %></th>
                 </tr>
               <tr>
                 <td>アーティスト：</td>
-                <td><%= products.artist_id%></td>
+                <td><%= @product.artist_id%></td>
               </tr>
               <tr>
                   <td>レーベル：</td>
-                  <td><%=products.notax_price %></td>
+                  <td><%= @product.notax_price %></td>
               </tr>
                <tr>
                   <td>ステータス：</td>
@@ -36,7 +36,7 @@
               </tr>
               <tr>
                 <td>税込価格：</td>
-                <td><%=p.notax_price %></td>
+                <td><%= @product.notax_price %></td>
               </tr>
         </table>
       </div>
