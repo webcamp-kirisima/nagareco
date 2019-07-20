@@ -6,11 +6,11 @@
     <div class="row">
       <div class="col-5">
         <div class="user-profile-image"><!-- ジャケ写 -->
-          <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg' %>
+          <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg' fallback: "no_image.jpg" %>
         </div>
       </div>
     </div>
-
+<div class="row">
       <div class="col-7">
         <table>
               <tr>
@@ -19,6 +19,7 @@
                 </tr>
               <tr>
                 <td>アーティスト：</td>
+
                 <td><%= @product.artist.artist%></td>
               </tr>
               <tr>
