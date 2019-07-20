@@ -2,7 +2,7 @@
   <%= @products.each do |c| %>
     <div class="row">
 
-        <div class="col-2 image"><%= attachment_image_tag c, :image, :fill, 100, 100, format: 'jpeg' %> </div>
+        <div class="col-2 image"><%= attachment_image_tag c, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"%> </div>
         <div class="col-2 cd_name"><%= c.cd_title %></div>
         <div class="col-2 artist"><%= c.artist.artist %></div>
 

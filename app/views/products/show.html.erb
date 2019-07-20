@@ -2,4 +2,43 @@
   <div class="row">
     <div class="col-12">
       <h1>商品詳細</h1>
-    
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-5">
+        <div class="user-profile-image"><!-- ジャケ写 -->
+          <%= attachment_image_tag product.id, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <table>
+              <tr>
+                <th>アルバム名：</th>
+                <th><%= products.cd_title %></th>
+                </tr>
+              <tr>
+                <td>アーティスト：</td>
+                <td><%= products.artist_id%></td>
+              </tr>
+              <tr>
+                  <td>レーベル：</td>
+                  <td><%=products.notax_price %></td>
+              </tr>
+               <tr>
+                  <td>ステータス：</td>
+                  <td><%= %></td>
+              </tr>
+               <tr>
+                  <td>ジャンル：</td>
+                  <td><%= %></td>
+              </tr>
+              <tr>
+                <td>税込価格：</td>
+                <td><%=p.notax_price %></td>
+              </tr>
+        </table>
+      </div>
+    </div>
+</div>
