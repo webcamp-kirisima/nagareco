@@ -1,25 +1,20 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>商品詳細</h1>
-
-    <div class="row">
-      <div class="col-5">
-        <div class="user-profile-image"><!-- ジャケ写 -->
-          <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg' fallback: "no_image.jpg" %>
-        </div>
-      </div>
+      <h2>商品詳細</h2>
     </div>
-<div class="row">
+
+      <div class="col-5">
+          <%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg', fallback: "no_image.jpg" %><!-- ジャケ写 -->
+        </div>
       <div class="col-7">
         <table>
               <tr>
                 <th>アルバム名：</th>
                 <th><%= @product.cd_title %></th>
-                </tr>
+              </tr>
               <tr>
                 <td>アーティスト：</td>
-
                 <td><%= @product.artist.artist%></td>
               </tr>
               <tr>
@@ -27,13 +22,12 @@
                   <td><%= @product.label.label%></td>
               </tr>
                <tr>
-                <td>在庫数：</td>
-                <td><%=@product.stock %></td>
+                  <td>在庫数：</td>
+                  <td><%=@product.stock %></td>
               </tr>
               <tr>
                   <td>ステータス：</td>
-                  <td><%= if @product.stock = 0
-                    @product.stock > 0 ? "在庫なし" : "在庫あり" end%>
+                  <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %>
                   </td>
               </tr>
                <tr>
@@ -44,6 +38,7 @@
                 <td>税込価格：</td>
                 <td><%=(@product.notax_price * 108/100.0).ceil %> </td>
               </tr>
+              <tr>
         </table>
       </div>
     </div>

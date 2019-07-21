@@ -1,55 +1,53 @@
-<div class="slide">
-	<div class="theTarget">
-		<div class="image1"></div>
-		<div class="image2"></div>
-		<div class="image3"></div>
-		<div class="image4"></div>
-		<div class="image5"></div>
- 	</div>
-</div>
-
-
-<div class="container"><!-- スライドショー -->
-		<% @products.each do |p| %>
-			<div class="row">
-				<div class="col-3">
-				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-				</div>
-					<div class="col-7">
-						<table>
-							<tr>
-								<th>アルバム名：</th>
-								<th><%= p.cd_title %></th>
-								<th></th>
-							</tr>
-							<tr>
-								<td>アーティスト：</td>
-								<td><%= p.artist.artist %></td><!-- アーティスト -->
-								<td></td>
-							</tr>
-							<tr>
-								<td>税込価格：</td>
-								<td><%=(p.notax_price * 108/100.0).ceil %></td>
-								<td><%=link_to "詳細", product_path(p.id)%></td>
-							</tr>
-						</table>
+<div class="container">
+	<div class="slide"><!-- スライドショー -->
+		<div class="theTarget">
+			<div class="image1"></div>
+			<div class="image2"></div>
+			<div class="image3"></div>
+			<div class="image4"></div>
+			<div class="image5"></div>
+	 	</div>
+	</div>
+	<div class="row">
+		<div class="col-8">
+			<% @products.each do |p| %>
+				<div class="row">
+					<div class="col-4">
+					<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 					</div>
+						<div class="col-8">
+							<table>
+								<tr>
+									<th>アルバム名：</th>
+									<th colspan="2"><%= p.cd_title %></th>
+								</tr>
+								<tr>
+									<td>アーティスト：</td>
+									<td colspan="2"><%= p.artist.artist %></td><!-- アーティスト -->
+								</tr>
+								<tr>
+									<td>税込価格：</td>
+									<td><%=(p.notax_price * 108/100.0).ceil %></td>
+									<td><%=link_to "詳細", product_path(p.id)%></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+			<% end %>
 		</div>
-		<% end %>
-		<dev class="row">
-			<div class="col-12"><!-- サイドバー -->
-				<h4>管理人おすすめ</h4>
-				<table>
-					<tr>
-						<th>アルバム名：</th>
-						<th><%=  %></th>
-					</tr>
-					<tr>
-						<td>アーティスト名：</td>
-						<td><%= %></td>
-					</tr>
-				</table>
-			</div>
+		<dev class="col-4">
+			<h4>管理人おすすめ</h4>
+			<table>
+				<tr>
+					<th>アルバム名：</th>
+					<th><%=   %></th>
+				</tr>
+				<tr>
+					<td>アーティスト名：</td>
+					<td><%=  %></td>
+				</tr>
+			</table>
+		</dev>
 	</div>
 </div>
 
