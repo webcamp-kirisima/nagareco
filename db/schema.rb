@@ -75,13 +75,6 @@ ActiveRecord::Schema.define(version: 2019_07_20_093813) do
     t.integer "quantity", default: 1
   end
 
-  create_table "product_images", force: :cascade do |t|
-    t.text "image_id"
-    t.integer "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
     t.integer "label_id"
