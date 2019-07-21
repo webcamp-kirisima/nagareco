@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
 
+  resources :line_items
+  resources :carts
 
   get 'genre/new'
   get 'genre/create'
   devise_for :users
   devise_for :admins
 
-  resources :orders
+  resources :sells
   resources :users
   resources :cart_items
   resources :products
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     resources :labels
     resources :users
     resources :orders
+    resources :sells
 
   end
 

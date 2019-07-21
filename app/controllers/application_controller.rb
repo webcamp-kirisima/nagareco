@@ -11,4 +11,17 @@ before_action :set_search
   	  @search = Product.ransack(params[:q])
   	  @search_products = @search.result.page(params[:page]).per(5)
   end
+
+  protect_from_forgery with: :exception
+
+  private
+	def current_cart
+
+		Cart.find(session[:cart_id])
+
+		rescue ActiveRecord::RecordNotFound
+			cart = Cart.create
+			session[:cart_id] = cart.id
+			cart
+	end
 end

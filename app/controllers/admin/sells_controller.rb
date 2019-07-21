@@ -1,5 +1,4 @@
-class Admin::OrdersController < ApplicationController
-
+class Admin::SellsController < ApplicationController
   def index
   end
 
@@ -8,5 +7,4 @@ class Admin::OrdersController < ApplicationController
 
   def update
   end
-
 end
