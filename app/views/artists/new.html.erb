@@ -1,9 +1,12 @@
 <div class="container">
-  <div class="form-group">
-    <%= form_for(@artist) do |f| %>
-      <%= f.label :"アーティスト名" %>
-      <%= f.text_field :artist, class: "form-control" %>
-      <%= f.submit '追加' %>
-    <% end %>
-  </div>
+  <%= form_for(@artist) do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
+    <div class="form-group">
+        <%= f.label :"アーティスト名" %>
+        <%= f.text_field :artist, class: "form-control" %>
+    </div>
+    <div>
+      <%= f.submit '追加', class:"btn btn-success" %>
+    </div>
+  <% end %>
 </div>

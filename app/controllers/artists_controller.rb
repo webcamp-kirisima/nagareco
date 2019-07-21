@@ -5,8 +5,11 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    @artist.save
-    redirect_to new_admin_product_path(current_user)
+    if @artist.save
+      redirect_to new_admin_product_path
+    else
+      render :new
+    end
   end
 
   private
