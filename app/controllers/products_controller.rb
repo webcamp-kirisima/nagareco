@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   def index
   	@products = Product.page(params[:page]).per(5)
+    @q = Product.ransack(params[:q])
+    @products = @search_products
   end
 
   def create
@@ -19,9 +21,11 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
   end
 
-
 private
+
   def products_params
     params.require(:product).permit(:artist_id, :cd_title, :image, :notax_price, :label, :genre, :stock )
   end
+
+
 end
