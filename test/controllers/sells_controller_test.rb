@@ -1,23 +1,23 @@
 require 'test_helper'
 
-class OrdersControllerTest < ActionDispatch::IntegrationTest
+class SellsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get orders_new_url
-    assert_response :success
-  end
-
-  test "should get show" do
-    get orders_show_url
+    get sells_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get orders_create_url
+    get sells_create_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get sells_show_url
     assert_response :success
   end
 
   test "should get finished" do
-    get orders_finished_url
+    get sells_finished_url
     assert_response :success
   end
 

@@ -14,6 +14,7 @@
 		<th>商品名</th>
 		<th>価格</th>
 		<th>数量</th>
+		<th>合計</th>
 	</tr>
 		<% @cart.line_items.each do |item| %>
 		<tr>
@@ -21,6 +22,19 @@
 			<td text-align:center;><font size="4"><%= item.product.cd_title %></font></td>
 			<td text-align:center;><font size="4"><%= (item.product.notax_price).to_i %>円</font></td>
 			<td text-align:center;><font size="4"><%= item.quantity %></font></td>
+			<td text-align:center;><font size="4"><%= (item.total_price).to_i %>円</font></td>
+			<td><%= button_to '削除', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか？'}%></td>
+
+		</tr>
 		</tr>
 		<% end %>
+		<tr>
+			<td colspan="5"><font size="5">総計：<%= (@cart.total_price).to_i %>円</font></td>
+		</tr>
+
 </table>
+
+<br>
+<%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
+<br>
+<%= button_to '注文をする', new_sell_path, method: :get, class: 'fbtn' %>

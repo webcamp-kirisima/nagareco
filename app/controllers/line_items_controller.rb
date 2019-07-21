@@ -58,13 +58,15 @@ end
 
   # DELETE /line_items/1
   # DELETE /line_items/1.json
-  def destroy
+ def destroy
     @line_item.destroy
+
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_url(@line_item.cart_id), notice: '商品をカートから削除しました。' }
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
