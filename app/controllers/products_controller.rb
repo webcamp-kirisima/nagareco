@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-  	@products =Product.all
+  	@products = Product.page(params[:page]).per(5)
   end
 
   def create
