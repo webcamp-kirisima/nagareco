@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :ships, dependent: :destroy
   has_many :cartitems, dependent: :destroy
   has_many :sells, dependent: :destroy
+  has_many :line_items, dependent: :destroy
 end
