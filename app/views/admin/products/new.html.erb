@@ -1,34 +1,30 @@
 <div class="container">
-  <div class="row">
+  <div class="row　max-auto">
    <div>
+    <h1>商品登録</h1>
+    <br>
+    <div class="btn-group d-flex">
+      <%= link_to "アーティストを追加", new_artist_path, class: "btn btn-info w-100" %>
 
-      <h1>商品新規登録</h1>
+      <%= link_to "レーベルを追加", new_label_path, class: "btn btn-warning w-100" %>
 
-      <div>
-      <%= link_to "アーティストを追加", new_artist_path %>
-      </div>
-
-      <div>
-      <%= link_to "レーベルを追加", new_label_path %>
-      </div>
-
-      <div>
-      <%= link_to "ジャンルを追加", new_genre_path %>
-      </div>
-
+      <%= link_to "ジャンルを追加", new_genre_path, class: "btn btn-danger w-100" %>
+    </div>
+    <br>
       <%= form_for(@product, url: admin_products_path) do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
         <div class="form-group">
           <%= f.label :"シングル/アルバム名" %>
           <%= f.text_field :cd_title, class: "form-control"  %>
         </div>
 
-        <div class="form-group">
-          <%= :アーティスト名 %><br>
-          <%= f.collection_select :artist_id, Artist.all, :id, :artist, :prompt => "アーティスト名を入力してください" %>
+        <div class="form-group artist-input">
+            <%= f.label :アーティスト名 %><br>
+            <%= f.collection_select :artist_id, Artist.all, :id, :artist, :prompt => "アーティスト名を入力してください", class: "form-control-lg" %>
         </div>
 
         <div class="form-group">
-            <%= f.label :ジャケット画像  %><br>
+            <%= f.label :ジャケット画像 %><br>
             <%= f.attachment_field :image %>
         </div>
 
@@ -57,12 +53,12 @@
           <% end %>
         </div>
 
-        <div >
+        <div>
           <%= link_to_add_association 'ディスクを追加',  f, :discs %>
         </div>
-
+        <br>
         <div>
-          <%= f.submit '商品登録' %>
+          <%= f.submit '商品登録', class:"btn btn-success" %>
         </div>
       <% end %>
 
