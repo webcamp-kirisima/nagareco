@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="form-group">
-    <%= form_for(@genre) do |f| %>
+  <%= form_for(@genre) do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
+    <div class="form-group">
       <%= f.label :"ジャンル" %>
       <%= f.text_field :genre, class: "form-control" %>
-      <%= f.submit '追加' %>
-    <% end %>
-  </div>
+    </div>
+    <div>
+      <%= f.submit '追加', class:"btn btn-success" %>
+    </div>
+  <% end %>
 </div>
-

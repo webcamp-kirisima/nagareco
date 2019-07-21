@@ -1,16 +1,9 @@
 Rails.application.routes.draw do
 
 
+  resources :line_items
+  resources :carts
 
-  namespace :admin do
-    get 'sells/index'
-    get 'sells/show'
-    get 'sells/update'
-  end
-  get 'sells/new'
-  get 'sells/create'
-  get 'sells/show'
-  get 'sells/finished'
   get 'genre/new'
   get 'genre/create'
   devise_for :users
@@ -30,6 +23,7 @@ Rails.application.routes.draw do
     resources :labels
     resources :users
     resources :orders
+    resources :sells
 
   end
 

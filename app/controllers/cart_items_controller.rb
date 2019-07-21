@@ -1,5 +1,11 @@
 class CartItemsController < ApplicationController
   def index
+  	@products = Product.select_shop
+
+    respond_to do |format|
+    format.html
+    format.json { render :xml => @product }
+  end
   end
 
   def edit
