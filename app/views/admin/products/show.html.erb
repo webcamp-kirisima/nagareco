@@ -5,15 +5,15 @@
   <div class="row">
     <div class="col">
       <img src="" alt="">
-      <p>ジャンル</p>
+      <%= @product.genre.genre %>
     </div>
     <div class="col">
-      <p>シングル・アルバム名</p>
-      <p>アーティスト名</p>
-      <p>レーベル名</p>
+      <%= @product.cd_title %><br>
+      <%= @product.artist.artist %><br>
+      <%= @product.label.label %>
       <div class="">
-        <span>在庫数</span>
-        <span>価格</span>
+        <%= @product.stock %>
+        <%= @product.notax_price %><span>円</span>
       </div>
       <div class="">
         <a href="#">編集</a>
