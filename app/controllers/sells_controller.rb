@@ -1,11 +1,11 @@
-class OrdersController < ApplicationController
+class SellsController < ApplicationController
   def new
   end
 
-  def show
+  def create
   end
 
-  def create
+  def show
   end
 
   def index
