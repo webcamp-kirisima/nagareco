@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'products#index'
+  get 'search', to: 'products#search'
   get'admin/top' => 'admin/top#top'
   get 'about' => 'home#about'
 

@@ -4,8 +4,11 @@
   </div>
   <div class="row">
     <div class="col">
-      <img src="" alt="">
-      <%= @product.genre.genre %>
+      <div>
+        <%= attachment_image_tag @product, :image,  :fill, 100, 100, format: 'jpeg' ,fallback: "no_image.jpg" %>
+      <div>
+        <%= @product.genre.genre %>
+      </div>
     </div>
     <div class="col">
       <%= @product.cd_title %><br>
@@ -16,18 +19,14 @@
         <%= @product.notax_price %><span>円</span>
       </div>
       <div class="">
-        <a href="#">編集</a>
-        <a href="#">削除</a>
+        <%= link_to "編集", edit_admin_product_path %>
+        <%= link_to "削除", admin_product_path, method: :delete, "date-confirm" => "本当に消去しますか？" %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <ul>
-      <li>曲名</li>
-      <li>曲名</li>
-      <li>曲名</li>
-      <li>曲名</li>
-      <li>曲名</li>
-    </ul>
+  <div class="">
+    <table class="table table-borderd table-striped">
+      <tr></tr>
+    </table>
   </div>
 </div>
