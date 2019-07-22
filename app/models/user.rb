@@ -10,3 +10,4 @@ class User < ApplicationRecord
   has_many :cartitems, dependent: :destroy
   has_many :sells, dependent: :destroy
 end
+

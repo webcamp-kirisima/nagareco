@@ -1,148 +1,130 @@
 <div class="container">
-	<div class="row">
-		<div class="col-8">
-		    <table style="width:100%; "cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-		    			<td>お客様情報</td>
-		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-			    		<td>ユーザーネーム様</td>
-			    	</tr>
-			    	<tr>
-			    		<td>〒　郵便番号</td>
-			    	</tr>
-			    	<tr>
-			    		<td>住所</td>
-			    	</tr>
-			    	<tr>
-			    		<td>電話番号</td>
-			    	</tr>
-		    	</tbody>
-		    </table>
+	<%= form_for (@sell) do |f| %>
+		<div class="row">
+			<div class="col-8">
+			    <table style="width:100%; "cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">お客様情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+				    		<td>名前：</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
+				    	</tr>
+				    	<tr>
+				    		<td>郵便番号</td><td><%= current_user.zip_code %></td>
+				    	</tr>
+				    	<tr>
+				    		<td>電話番号</td><td><%= current_user.tel %></td>
+				    	</tr>
+				    	<tr>
+				    		<td>住所</td><td><%= current_user.address %></td>
+				    	</tr>
+			    	</tbody>
+			    </table>
+			    <table style="width:100%; "cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">送付先情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+							<td><%= f.label :受取人氏名 %></td>
+							<td><%= f.text_field :ship_name, :value => current_user.last_name, class: "form-control" %></td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :郵便番号 %></td>
+							<td><%= f.text_field :ship_code, :value => current_user.zip_code, class: "form-control" %></td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :住所 %></td>
+							<td><%= f.text_field :ship_address, :value => current_user.tel, class: "form-control" %></td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :電話番号 %></td>
+							<td><%= f.text_field :ship_tel, :value => current_user.address, class: "form-control" %></td>
+				    	</tr>
+			    	</tbody>
+			    </table>
 
-		    <table style="width:100%;" cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-		    			<td colspan="2">商品情報</td>
-		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-			    		<td>商品画像</td><td>商品名</td>
-			    	</tr>
-			    	<tr>
-			    		<td></td><td>税込価格×購入数　小計：￥価格</td>
-			    	</tr>
-		    	</tbody>
-		    </table style="width:100%;">
-		    <div class="accordion" id="accordion2" role="tablist">
-			  <div class="card">
-			    <div class="card-header" role="tab" id="heading1">
-			      <h5 class="mb-0">
-			        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1"> お届け先を指定する </a>
-			      </h5>
-			    </div>
-
-			    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
-				     <div class="card-body">
-
-						<table  border="1" bordercolor="#4682B4" cellpadding="25" style="width:100%" cellpadding="15">
-					        <tr>
-								<th>宛先</th>
-								<td>宛先入力</td>
-							</tr>
-							<tr>
-								<th>郵便番号</th>
-								<td>郵便番号入力</td>
-							</tr>
-							<tr>
-								<th>住所</th>
-								<td>住所入力</td>
-							</tr>
-							<tr>
-								<th>住所</th>
-								<td>配送先住所入力</td>
-							</tr>
-							<tr>
-								<th>電話番号</th>
-								<td>電話番号入力</td>
-							</tr>
-
-						</table>
-					</div>
-			  	</div>
-
-			  </div>
-			  <div class="card">
-			    <div id="heading3">
-			    </div>
-			  </div>
-			</div>
-			<table style="width:100%;" cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-			    		<td>お支払い方法</td>
-			    	</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-		    			<td>
-			    			<div class="custom-control custom-radio">
-							  <input id="customRadio1" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio1">クレジット</label>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="custom-control custom-radio">
-							  <input id="customRadio2" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio2">銀行振込</label>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="custom-control custom-radio">
-							  <input id="customRadio3" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio3">代引</label>
-							</div>
-						</td>
-					</tr>
-		    	</tbody>
-			</table>
-		</div>
-        <div class="col-4">
-			<div>
-				<div>
-					<table style="width:100%;" cellpadding="15">
-				    	<thead>
+			    <table style="width:100%;" cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">商品情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<% current_user.cartitems.each do |i| %>
 				    		<tr>
-					    		<td>小計</td><td>￥金額</td>
+					    		<td><%=attachment_image_tag i, :image %></td>
+					    		<td>商品名：<%= i.cd_title%></td>
 					    	</tr>
 					    	<tr>
-					    		<td>送料</td><td>￥送料</td>
+					    		<td></td><td><%= i.notax_price %>×<%= i.quantity %>購入数　小計：￥価格</td>
 					    	</tr>
-				    	</thead>
-				    	<tbody>
-				    		<tr>
-				    			<td>合計</td><td>￥合計金額</td>
-				    		</tr>
-				    		<tr>
-				    			<td colspan="2">
-							    	<div class="btn-group-vertical btn-block" role="group" aria-label="積み重ねボタングループ">
-										<a class="btn btn-danger btn-block" href="#" role="button">確認する</a>
-										<a class="btn btn-secondary btn-block" href="#" role="button">カートへ戻る</a>
-									</div>
-								</td>
-				    		</tr>
-				    	</tbody>
-			    	</table>
-		    	</div>
+				    	<% end %>
+			    	</tbody>
+			    </table>
+
+				<table style="width:100%;" cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+				    		<td colspan="2">お支払い方法</td>
+				    	</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+			    			<td>
+								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.label :クレジット %>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.label :銀行振込 %>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.label :代引 %>
+							</td>
+						</tr>
+			    	</tbody>
+				</table>
 			</div>
-		</div>
-	</div>
+	        <div class="col-4">
+				<div>
+					<div>
+						<table style="width:100%;" cellpadding="15">
+					    	<thead>
+					    		<tr>
+						    		<td>小計</td><td>￥金額</td>
+						    	</tr>
+						    	<tr>
+						    		<td>送料</td><td>￥送料</td>
+						    	</tr>
+					    	</thead>
+					    	<tbody>
+					    		<tr>
+					    			<td>合計</td><td>￥合計金額</td>
+					    		</tr>
+					    		<tr>
+					    			<td colspan="2">
+								    	<div class="btn-group-vertical btn-block" role="group" aria-label="積み重ねボタングループ">
+											<%= f.submit "確認する", class: "btn btn-danger btn-block"%>
+											<a class="btn btn-secondary btn-block" href="#" role="button">カートへ戻る</a>
+										</div>
+									</td>
+					    		</tr>
+					    	</tbody>
+				    	</table>
+			    	</div>
+				</div>
+			</div>
+		 </div>
+	<% end %>
 </div>

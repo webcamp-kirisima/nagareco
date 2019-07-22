@@ -7,12 +7,6 @@ Rails.application.routes.draw do
     get 'sells/show'
     get 'sells/update'
   end
-  get 'sells/new'
-  get 'sells/create'
-  get 'sells/show'
-  get 'sells/finished'
-  get 'genre/new'
-  get 'genre/create'
   devise_for :users
   devise_for :admins
 
@@ -23,6 +17,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :labels
   resources :genres
+  resources :ships
 
   namespace :admin do
     resources :products
