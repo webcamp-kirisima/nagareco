@@ -10,7 +10,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new
+    @product = Product.new(product_params)
     if @product.save
       redirect_to admin_product_path(@product)
     else
@@ -32,7 +32,7 @@ class Admin::ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to admin_products
+    redirect_to admin_products_path
   end
   private
 

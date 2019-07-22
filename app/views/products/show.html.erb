@@ -43,19 +43,21 @@
               </tr>
           </table>
       </div>
+      <div class="row">
         <% @product.discs.each do |p| %><!-- ディスクNo. -->
-        <table>
-            <tr>
-              <td>NO:</td>
-              <td><%= p.disc_num %> </td>
-            </tr>
-            <tr>
-            <% p.songs.each do |s| %> <!-- 曲名 -->
-              <td></td>
-              <td><%= s.song %></td>
-            </tr>
-          <% end %>
-        </table>
+          <table>
+              <tr>
+                <td>NO:</td>
+                <td><%= p.disc_num %> </td>
+              </tr>
+              <tr>
+              <% p.songs.each do |s| %> <!-- 曲名 -->
+                <td></td>
+                <td><%= s.song %></td>
+              </tr>
             <% end %>
+          </table>
+        <% end %>
+      </div>
   </div>
 </div>
