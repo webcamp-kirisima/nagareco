@@ -6,10 +6,9 @@ class Product < ApplicationRecord
 	has_many :discs,  dependent: :destroy
 	has_many :songs, through: :discs
 	has_many :cartitems, dependent: :destroy
-	has_many :product_images, dependent: :destroy
 	attachment :image
 	has_many :line_items
-    before_destroy :referenced_by_line_item
+  before_destroy :referenced_by_line_item
 
 	def self.select_shop
 	where("date <= ?","now()").order(title: "ASC")
