@@ -7,4 +7,5 @@ class Admin::SellsController < ApplicationController
 
   def update
   end
+
 end
