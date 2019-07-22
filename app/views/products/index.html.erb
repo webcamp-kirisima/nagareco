@@ -13,7 +13,7 @@
 			<% @products.each do |p| %>
 				<div class="row">
 					<div class="col-4">
-					<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+						<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 					</div>
 						<div class="col-8">
 							<table>
@@ -36,19 +36,25 @@
 			<% end %>
 			<%= paginate @products -%>
 		</div>
-		<dev class="col-4">
+		<div class="col-4">
 			<h4>管理人おすすめ</h4>
-			<table>
-				<tr>
-					<th>アルバム名：</th>
-					<th><%=   %></th>
-				</tr>
-				<tr>
-					<td>アーティスト名：</td>
-					<td><%=  %></td>
-				</tr>
-			</table>
-		</dev>
+				<% @product_randoms.each do |r| %>
+					<div class="row">
+						<%= attachment_image_tag r, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+						<table>
+							<tr>
+								<th>アルバム名：</th>
+								<th><%= r.artist.artist %></th>
+							</tr>
+							<tr>
+								<td>アーティスト名：</td>
+								<td><%= r.cd_title %></td>
+							</tr>
+						</table>
+					</div>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 
