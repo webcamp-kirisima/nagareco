@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :line_items
+  resources :carts
 
   namespace :admin do
     get 'sells/index'
@@ -25,10 +27,12 @@ Rails.application.routes.draw do
     resources :labels
     resources :users
     resources :orders
+    resources :sells
 
   end
 
   root to: 'products#index'
+  get 'search', to: 'products#search'
   get'admin/top' => 'admin/top#top'
   get 'about' => 'home#about'
 
