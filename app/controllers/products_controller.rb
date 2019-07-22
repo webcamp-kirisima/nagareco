@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
     @products = Product.page(params[:page]).per(5)
     @q = Product.ransack(params[:q])
     @products = @search_products
+
   end
 
   def create

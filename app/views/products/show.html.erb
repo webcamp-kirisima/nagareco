@@ -38,7 +38,6 @@
                 <td>税込価格：</td>
                 <td><%=(@product.notax_price * 108/100.0).ceil %>円</td>
               </tr>
-              <td>
               <td><%= button_to 'カートに入れる', line_items_path(product_id: @product), class: 'fbtn' %>
             </td>
         </table>
