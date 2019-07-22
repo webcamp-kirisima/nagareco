@@ -5,28 +5,57 @@
   <div class="row">
     <div class="col">
       <div>
-        <%= attachment_image_tag @product, :image,  :fill, 100, 100, format: 'jpeg' ,fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg" %>
+      </div>
       <div>
-        <%= @product.genre.genre %>
+        <h3><%= @product.genre.genre %></h3>
       </div>
     </div>
     <div class="col">
-      <%= @product.cd_title %><br>
-      <%= @product.artist.artist %><br>
-      <%= @product.label.label %>
-      <div class="">
-        <%= @product.stock %>
-        <%= @product.notax_price %><span>円</span>
-      </div>
-      <div class="">
-        <%= link_to "編集", edit_admin_product_path %>
-        <%= link_to "削除", admin_product_path, method: :delete, "date-confirm" => "本当に消去しますか？" %>
-      </div>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>シングル/アルバム名</td>
+            <td><%= @product.cd_title %></td>
+          </tr>
+          <tr>
+            <td>アーティスト名</td>
+            <td><%= @product.artist.artist %></td>
+          </tr>
+          <tr>
+            <td>レーベル名</td>
+            <td><%= @product.label.label %></td>
+          </tr>
+          <tr>
+            <td>在庫数</td>
+            <td><%= @product.stock %></td>
+          </tr>
+          <tr>
+            <td>価格（税別）</td>
+            <td><%= @product.notax_price %><span> 円</span></td>
+          </tr>
+          <tr>
+            <td><%= link_to "編集", edit_admin_product_path %></td>
+            <td><%= link_to "削除", admin_product_path, method: :delete, "date-confirm" => "本当に消去しますか？" %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="">
-    <table class="table table-borderd table-striped">
-      <tr></tr>
-    </table>
+  <div class="row">
+    <% @product.discs.each do |p| %><!-- ディスクNo. -->
+      <table>
+        <tr>
+          <td>ディスク</td>
+          <td><%= p.disc_num %> </td>
+        </tr>
+        <tr>
+          <% p.songs.each do |s| %> <!-- 曲名 -->
+            <td></td>
+            <td><%= s.song %></td>
+          <% end %>
+        </tr>
+      </table>
+    <% end %>
   </div>
 </div>
