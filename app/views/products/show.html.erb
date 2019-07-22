@@ -18,30 +18,44 @@
                 <td><%= @product.artist.artist%></td>
               </tr>
               <tr>
-                  <td>レーベル：</td>
-                  <td><%= @product.label.label%></td>
-              </tr>
-               <tr>
-                  <td>在庫数：</td>
-                  <td><%=@product.stock %></td>
+                <td>レーベル：</td>
+                <td><%= @product.label.label%></td>
               </tr>
               <tr>
-                  <td>ステータス：</td>
-                  <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %>
-                  </td>
+                <td>在庫数：</td>
+                <td><%=@product.stock %></td>
               </tr>
-               <tr>
-                  <td>ジャンル：</td>
-                  <td><%= @product.genre.genre%></td>
+              <tr>
+                <td>ステータス：</td>
+                <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td>
+              </tr>
+              <tr>
+                <td>ジャンル：</td>
+                <td><%= @product.genre.genre%></td>
               </tr>
               <tr>
                 <td>税込価格：</td>
                 <td><%=(@product.notax_price * 108/100.0).ceil %>円</td>
               </tr>
-              <td>
-              <td><%= button_to 'カートに入れる', line_items_path(product_id: @product), class: 'fbtn' %>
-            </td>
-        </table>
+              <tr>
+                <td><%= button_to 'カートに入れる', line_items_path(product_id: @product), class: 'fbtn' %>
+                </td>
+              </tr>
+          </table>
       </div>
-    </div>
+        <% @product.discs.each do |p| %><!-- ディスクNo. -->
+        <table>
+            <tr>
+              <td>NO:</td>
+              <td><%= p.disc_num %> </td>
+            </tr>
+            <tr>
+            <% p.songs.each do |s| %> <!-- 曲名 -->
+              <td></td>
+              <td><%= s.song %></td>
+            </tr>
+          <% end %>
+        </table>
+            <% end %>
+  </div>
 </div>
