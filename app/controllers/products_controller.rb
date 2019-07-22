@@ -24,11 +24,9 @@ class ProductsController < ApplicationController
 
 
 private
-
-
-  def products_params
-    params.require(:product).permit(:artist_id, :cd_title, :image, :notax_price, :label, :genre, :stock )
+  def product_params
+    params.require(:product).permit(:artist_id, :image, :label_id, :genre_id, :cd_title, :notax_price, :stock,
+                                                         discs_attributes: [:id, :disc_num, :_destroy,
+                                                         songs_attributes: [:id, :track_num, :song, :_destroy],] )
   end
-
-
 end

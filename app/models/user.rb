@@ -11,3 +11,4 @@ class User < ApplicationRecord
   has_many :sells, dependent: :destroy
   has_many :carts, dependent: :destroy
 end
+

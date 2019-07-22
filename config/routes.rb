@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
 
-  get 'genre/new'
-  get 'genre/create'
+  namespace :admin do
+    get 'sells/index'
+    get 'sells/show'
+    get 'sells/update'
+  end
   devise_for :users
   devise_for :admins
 
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :labels
   resources :genres
+  resources :ships
 
   namespace :admin do
     resources :products
