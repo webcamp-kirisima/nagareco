@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 	has_many :cartitems, dependent: :destroy
 	attachment :image
 	has_many :line_items
-  before_destroy :referenced_by_line_item
+  	before_destroy :referenced_by_line_item
 
 	def self.select_shop
 	where("date <= ?","now()").order(title: "ASC")
