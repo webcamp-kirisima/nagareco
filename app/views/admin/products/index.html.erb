@@ -1,14 +1,30 @@
 <div class="container">
+  <h2>商品一覧</h2>
     <div class="row">
-        <% @products.each do |c| %>
-            <div class="col-2 image"><%= attachment_image_tag c, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"%></div>
-            <div class="col-2 cd_name"><%= c.cd_title %></div>
-            <div class="col-2 artist"><%= c.artist.artist %></div>
+          <table class="table" style="height: 100px;">
+            <thead class="thead">
+              <tr>
+                <td class="align-middle">ジャケット</td>
+                <td class="align-middle">商品名</td>
+                <td class="align-middle">アーティスト</td>
+                <td class="align-middle">価格（税別）</td>
+                <td class="align-middle">在庫</td>
+                <td class="align-middle"></td>
+              </tr>
+            </thead>
 
-            <div class="col-2 plice"><%= c.notax_price %></div>
-            <div class="col-2 status"><%= c.stock %></div>
-            <div class="col-2 link_cd"><%= link_to "商品詳細",admin_product_path(c) %></div>
-        <% end %>
+            <tbody>
+              <% @products.each do |c| %>
+                <tr>
+                  <td class="align-middle"><%= attachment_image_tag c, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %></td>
+                  <td class="align-middle"><%= c.cd_title %></td>
+                  <td class="align-middle"><%= c.artist.artist %></td>
+                  <td class="align-middle"><%= c.notax_price %><span> 円</span></td>
+                  <td class="align-middle"><%= c.stock %></td>
+                  <td class="align-middle"><%= link_to "商品詳細",admin_product_path(c) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
     </div>
 </div>
-
