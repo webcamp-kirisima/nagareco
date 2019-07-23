@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @products = Product.page(params[:page]).per(5)
     @q = Product.ransack(params[:q])
     @products = @search_products
-
+    @product_randoms = Product.order("RANDOM()").limit(3)
   end
 
   def create

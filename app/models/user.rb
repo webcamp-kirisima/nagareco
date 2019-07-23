@@ -15,7 +15,6 @@ validates :last_name, presence: true
   acts_as_paranoid
 
   has_many :ships, dependent: :destroy
-  has_many :cartitems, dependent: :destroy
   has_many :sells, dependent: :destroy
   has_many :carts, dependent: :destroy
 end
