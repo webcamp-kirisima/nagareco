@@ -41,8 +41,6 @@ class LineItemsController < ApplicationController
       end
     end
 
-  
-
 end
 
   # PATCH/PUT /line_items/1
