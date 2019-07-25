@@ -1,19 +1,22 @@
 class SellsController < ApplicationController
 
-before_action :set_order, only: [:show, :edit, :update, :destroy]
 
-  # GET /orders
-  # GET /orders.json
-  def index
-    @sells = Sell.all
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+  # GET /products
+  # GET /products.json
+
+ def index
+    @products = Product.all
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
+
+  # GET /products/1
+  # GET /products/1.json
   def show
   end
 
-  # GET /orders/new
+  # GET /produc
   def new
   @cart = current_cart
   if @cart.line_items.empty?
@@ -25,65 +28,69 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   respond_to do |format|
     format.html
-    format.json { render json: @order }
+    format.json { render json: @product }
   end
   end
 
-  # GET /orders/1/edit
+  # GET /products/1/edit
   def edit
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
-    @sell = Sell.new(sell_params)
+    @product = Product.new(product_params)
+    @product.add_items(current_cart)
 
     respond_to do |format|
-      if @sell.save
-        format.html { redirect_to @sell, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @sell }
+
+      if @product.save
+  Cart.destroy(session[:cart_id])
+  session[:cart_id] = nil
+        format.html { redirect_to products_path, notice: 'ご注文ありがとうございました。' }
+        format.json { render json: @product, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @sell.errors, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
+  # PATCH/PUT /products/1
+  # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
-      if @sell.update(sell_params)
-        format.html { redirect_to @sell, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sell }
+      if @product.update(product_params)
+        format.html { redirect_to @product, notice: 'product was successfully updated.' }
+        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
-        format.json { render json: @sell.errors, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
+
+  # DELETE /products/1
+  # DELETE /products/1.json
+
   def destroy
-    @sell.destroy
+    @product.destroy
     respond_to do |format|
-      format.html { redirect_to sells_url, notice: 'Order was successfully destroyed.' }
+
+      format.html { redirect_to products_path, notice: 'product was successfully destroyed.' }
+
       format.json { head :no_content }
     end
   end
 
-  def finish
-  end
 
   private
-
-  def set_sell
-      @sell = Sell.find(params[:id])
+    # Use callbacks to share common setup or constraints between actions.
+    def set_product
+      @product = Product.find(params[:id])
     end
 
-  def sell_params
-      params.require(:sell).permit( :user_id, :pay, :ship_address, :ship_tel, :ship_code, :ship_name, :total)
-  end
-
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def product_params
+      params.require(:product).permit(:sip_name, :ship_address, :ship_tel, :pay)
+    end
 end

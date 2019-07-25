@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
 
-before_action :configure_permitted_parameters, if: :devise_controller?
-before_action :set_search
-helper_method :current_cart
+      before_action :configure_permitted_parameters, if: :devise_controller?
+      before_action :set_search
+      helper_method :current_cart
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_kana, :first_kana, :zip_code, :address, :tel])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_kana, :first_kana, :zip_code, :address, :tel])
   end
 
   def set_search
@@ -23,5 +23,5 @@ helper_method :current_cart
       cart = Cart.create
       session[:cart_id] = cart.id
       cart
-  end
+    end
 end
