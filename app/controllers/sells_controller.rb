@@ -36,13 +36,12 @@ class SellsController < ApplicationController
 
   def create
     @sell = Sell.new(sell_params)
-    @sell.add_items(current_cart)
 
     respond_to do |format|
       if @sell.save
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
-          format.html { sells_finish_path, notice: 'ご注文ありがとうございました。' }
+          format.html { redirect_to sells_finish_path}
           format.json { render json: @sell, status: :created, location: @sell }
       else
           format.html { redirect_to products_path }
