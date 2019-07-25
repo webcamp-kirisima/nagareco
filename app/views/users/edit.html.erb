@@ -1,6 +1,6 @@
 <div class="container col-12">
 	<div class="container col-10">
-		<%= form_for(@ship) do |f| %>
+		<%= form_for(@user) do |f| %>
 			 <table border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
 	            <tr>
 					<th>宛先</th>
@@ -18,7 +18,7 @@
 
 				<tr>
 					<th><%= f.label :郵便番号 %></th>
-					<td><%= f.text_field :code, class: "form-control" %></td>
+					<td><%= f.text_field :zip_code, class: "form-control" %></td>
 				</tr>
 
 				<tr>
@@ -30,9 +30,17 @@
 					<th><%= f.label :電話番号 %></th>
 					<td><%= f.text_field :tel, class: "form-control" %></td>
 				</tr>
+				<tr>
+			         <th><%= f.label :メールアドレス %></th>
+			         <td><%= f.email_field :email, autofocus: true, autocomplete: "メール", class: "form-control" %></td>
+
+		        </tr>
+		        <tr>
+					<td colspan="2"><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-info btn-block" %></td>
+				</tr>
 
 				<tr>
-					<td colspan="2"><%= f.submit "宛先を追加する", class: "btn btn-primary btn-block" %></td>
+					<td colspan="2"><%= f.submit "変更を確定する", class: "btn btn-primary btn-block" %></td>
 				</tr>
 			</table>
 		<% end %>
