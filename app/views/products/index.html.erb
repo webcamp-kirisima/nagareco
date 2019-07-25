@@ -39,24 +39,30 @@
 			<%= paginate @products -%>
 		</div>
 		<div class="col-4">
-			<h4>管理人おすすめ</h4>
+			<div class="card bg-light mb-3">
+  <div class="card-header">管理人のおすすめ</div>
+  <div class="card-body">
 			<% @product_randoms.each do |r| %>
 				<div class="row">
+					<div class="col-4">
 					<%= link_to product_path(r.id) do %>
-						<%= attachment_image_tag r, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
+						<%= attachment_image_tag r, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" ,class: "d-block mx-auto" %>
 					<% end %>
-					<table class="table table-dark">
+					</div>
+					<div class="col-8">
+					<table class="table" style="font-size: 3pt;">
 						<tr>
-							<th>アルバム名：</th>
-							<th><%= r.cd_title %></th>
+							<td><%= r.cd_title %></td>
 						</tr>
 						<tr>
-							<td>アーティスト名：</td>
 							<td><%= r.artist.artist%></td>
 						</tr>
 					</table>
 				</div>
+				</div>
 			<% end %>
+		</div>
+		</div>
 		</div>
 	</div>
 </div>
