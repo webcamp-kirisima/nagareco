@@ -5,16 +5,20 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
+
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @product_randoms = Product.order("RANDOM()").limit(3)
+    @line_item = LineItem.new
   end
 
   # GET /carts/new
   def new
     @cart = Cart.new
+
   end
 
   # GET /carts/1/edit
@@ -37,6 +41,10 @@ class CartsController < ApplicationController
     end
   end
 
+  def update_item
+    @line_item.update(quantity: params[:quantity].to_i)
+    redirect_to current_cart
+  end
   # PATCH/PUT /carts/1
   # PATCH/PUT /carts/1.json
   def update
