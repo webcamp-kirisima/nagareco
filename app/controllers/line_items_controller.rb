@@ -50,13 +50,7 @@ class LineItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
-<<<<<<< HEAD
     end
-=======
-  end
-
-
->>>>>>> develop
 end
 
   # PATCH/PUT /line_items/1
