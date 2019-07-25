@@ -1,6 +1,5 @@
 class Sell < ApplicationRecord
 	belongs_to :user
-	has_many :line_itmes, dependent: :destroy
 	has_many :sell_details, dependent: :destroy
 
 	def add_items(cart)

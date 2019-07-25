@@ -7,7 +7,7 @@ class SellsController < ApplicationController
   # GET /products.json
 
  def index
-    @products = Product.all
+    @sells = Sell.all
   end
 
 
@@ -37,19 +37,19 @@ class SellsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.add_items(current_cart)
+    @sell = Sell.new(sell_params)
+    @sell.add_items(current_cart)
 
     respond_to do |format|
 
-      if @product.save
+      if @sell.save
   Cart.destroy(session[:cart_id])
   session[:cart_id] = nil
-        format.html { redirect_to products_path, notice: 'ご注文ありがとうございました。' }
-        format.json { render json: @product, status: :created, location: @product }
+        format.html { redirect_to sells_finish_path, notice: 'ご注文ありがとうございました。' }
+        format.json { render json: @sell, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @sell.errors, status: :unprocessable_entity }
       end
     end
 end
