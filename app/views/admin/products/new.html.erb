@@ -1,67 +1,68 @@
 <div class="container">
-  <div class="row　max-auto">
-   <div>
-    <h1>商品登録</h1>
-    <br>
-    <div class="btn-group d-flex">
-      <%= link_to "アーティストを追加", new_artist_path, class: "btn btn-info w-100" %>
+  <div class="row">
+   <div class="col-8 offset-md-2 card　card-body bg-light p-5">
+      <div class="headline">
+        <h2>商品登録</h2>
+      </div>
+      <br>
+      <div class="btn-group d-flex">
+        <%= link_to "アーティストを追加", new_artist_path, class: "btn w-100 btn-add" %>
 
-      <%= link_to "レーベルを追加", new_label_path, class: "btn btn-warning w-100" %>
+        <%= link_to "レーベルを追加", new_label_path, class: "btn w-100 btn-add" %>
 
-      <%= link_to "ジャンルを追加", new_genre_path, class: "btn btn-danger w-100" %>
-    </div>
-    <br>
-      <%= form_for(@product, url: admin_products_path) do |f| %>
-        <%= render "layouts/error_messages", model: f.object %>
-        <div class="form-group">
-          <%= f.label :"シングル/アルバム名" %>
-          <%= f.text_field :cd_title, class: "form-control"  %>
-        </div>
+        <%= link_to "ジャンルを追加", new_genre_path, class: "btn w-100 btn-add" %>
+      </div>
+      <br>
+        <%= form_for(@product, url: admin_products_path) do |f| %>
+          <%= render "layouts/error_messages", model: f.object %>
+          <div class="form-group">
+            <%= f.label :"シングル/アルバム名" %>
+            <%= f.text_field :cd_title, class: "form-control" %>
+          </div>
 
-        <div class="form-group artist-input">
-            <%= f.label :アーティスト名 %><br>
-            <%= f.collection_select :artist_id, Artist.all, :id, :artist, :prompt => "アーティスト名を入力してください", class: "form-control-lg" %>
-        </div>
+          <div class="form-group artist-input">
+              <%= f.label :アーティスト名 %><br>
+              <%= f.collection_select :artist_id, Artist.all, :id, :artist, :prompt => "アーティスト名を入力してください", class: "form-control-lg" %>
+          </div>
 
-        <div class="form-group">
-            <%= f.label :ジャケット画像 %><br>
-            <%= f.attachment_field :image %>
-        </div>
+          <div class="form-group">
+              <%= f.label :ジャケット画像 %><br>
+              <%= f.attachment_field :image %>
+          </div>
 
-       <div class="form-group">
-          <%= f.label :価格（税別価格）%>
-          <%= f.text_field :notax_price, class: "form-control" %>
-        </div>
+         <div class="form-group">
+            <%= f.label :価格（税別価格）%>
+            <%= f.text_field :notax_price, class: "form-control" %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :レーベル名 %><br>
-          <%= f.collection_select :label_id, Label.all, :id, :label, :prompt => "レーベルを選択してください" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :レーベル名 %><br>
+            <%= f.collection_select :label_id, Label.all, :id, :label, :prompt => "レーベルを選択してください", class: "form-control" %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :ジャンル %><br>
-          <%=  f.collection_select :genre_id, Genre.all, :id, :genre, :prompt => "ジャンルを選択してください" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :ジャンル %><br>
+            <%=  f.collection_select :genre_id, Genre.all, :id, :genre, :prompt => "ジャンルを選択してください", class: "select" %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :在庫数 %>
-          <%= f.text_field :stock, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :在庫数 %>
+            <%= f.text_field :stock, class: "form-control" %>
+          </div>
 
-        <div>
-          <%=  f.fields_for :discs do |d| %>
-          <% end %>
-        </div>
+          <div>
+            <%=  f.fields_for :discs do |d| %>
+            <% end %>
+          </div>
 
-        <div>
-          <%= link_to_add_association 'ディスクを追加',  f, :discs %>
-        </div>
-        <br>
-        <div>
-          <%= f.submit '商品登録', class:"btn btn-success" %>
-        </div>
-      <% end %>
-
-    </div>
+          <div>
+            <%= link_to_add_association 'ディスクを追加',  f, :discs, class: "btn btn-add" %>
+          </div>
+          <br>
+          <div>
+            <%= f.submit '商品登録', class:"btn btn-reg" %>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

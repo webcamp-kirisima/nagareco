@@ -1,8 +1,10 @@
 <div class="container">
-  <h2>商品一覧</h2>
-    <div class="row">
-          <table class="table" style="height: 100px;">
-            <thead class="thead">
+    <div class="row card 　card-body bg-light p-4">
+      <div class="headline">
+        <h2>商品一覧</h2>
+      </div>
+          <table class="table table-bordered text-center" style="height: 100px;">
+            <thead class="thead thead-light">
               <tr>
                 <td class="align-middle">ジャケット</td>
                 <td class="align-middle">商品名</td>
@@ -12,7 +14,6 @@
                 <td class="align-middle"></td>
               </tr>
             </thead>
-
             <tbody>
               <% @products.each do |c| %>
                 <tr>
@@ -21,10 +22,11 @@
                   <td class="align-middle"><%= c.artist.artist %></td>
                   <td class="align-middle"><%= c.notax_price %><span> 円</span></td>
                   <td class="align-middle"><%= c.stock %></td>
-                  <td class="align-middle"><%= link_to "商品詳細",admin_product_path(c) %></td>
+                  <td class="align-middle"><%= link_to "商品詳細", admin_product_path(c), class: "btn btn-add" %></td>
                 </tr>
               <% end %>
             </tbody>
           </table>
+        <%= paginate @products %>
     </div>
 </div>
