@@ -13,10 +13,19 @@
 
   <body class="<%= "#{controller.controller_name}" %>">
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark" style="margin-bottom:80px;">
           <a class="navbar-brand" href="#" style="font-size:32px;">Nagareco</a>
           <button type="button" class="navbar-toggler fas fa-outdent navbar-dark" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" style="color:white;" >
           </button>
+=======
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning" style="margin-bottom:80px;">
+     <a class="navbar-logo" href="/">
+              <%= image_tag('image7.jpg') %>
+            </a>
+      <button type="button" class="navbar-toggler fas fa-outdent navbar-dark" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" style="color:white;" >
+      </button>
+>>>>>>> develop
 
       <div class="collapse navbar-collapse" id="Navber">
         <% if admin_signed_in? %>
@@ -85,6 +94,7 @@
               <%= link_to new_user_registration_path do %>アカウント作成<%end%>
             </li>
 
+<<<<<<< HEAD
             <li class="mr-2">
               <%= link_to new_user_session_path do %>ログイン<%end%>
             </li>
@@ -104,6 +114,28 @@
     <%= yield %>
 
    <footer class="" style="margin-top:80px; height:50px; color: white">
+=======
+        <li class="mr-2">
+          <%= link_to new_user_session_path do %>ログイン<%end%>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+    <%= search_form_for @search do |f| %>
+  <%= f.label :cd_title_cont, "商品名を含む" %>
+  <%= f.search_field :cd_title_cont %>
+  <div class="actions"><%= f.submit "検索" %></div>
+<% end %>
+
+</nav>
+
+    <%= yield %>
+
+
+
+   <footer class="bg-warning " style="margin-top:30px; height:50px; color: white">
+>>>>>>> develop
       <p class="text-right">
       CopyRight Nagareco.inc
       </p>

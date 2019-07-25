@@ -1,29 +1,69 @@
 class SellsController < ApplicationController
 
-  def new
-      @sell = Sell.new
-  end 
+  before_action :set_sell, only: [:show, :edit, :update, :destroy]
 
-   def create_confirm
-      @sell = Sell.new
-  end
-
-  def create
-      def create
-      @sell = Sell.new
-      @sell_details = SellDetail.new
-      @sell_details.product_id = cart.item_id
-  end
+  def index
+    @sells = Sell.all
   end
 
   def show
   end
 
-  def index
+  def new
+  @cart = current_cart
+  if @cart.line_items.empty?
+    redirect_to market_url, notice: 'カートは空です。'
+    return
   end
 
-  def finished
+  @sell = Sell.new
+
+  respond_to do |format|
+    format.html
+    format.json { render json: @sell }
   end
+  end
+
+  def edit
+  end
+
+
+  def create
+    @sell = Sell.new(sell_params)
+
+    respond_to do |format|
+      if @sell.save
+        format.html { redirect_to @sell, notice: 'sell was successfully created.' }
+        format.json { render :show, status: :created, location: @sell }
+      else
+        format.html { render :new }
+        format.json { render json: @sell.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @sell.update(sell_params)
+        format.html { redirect_to @sell, notice: 'sell was successfully updated.' }
+        format.json { render :show, status: :ok, location: @sell }
+      else
+        format.html { render :edit }
+        format.json { render json: @sell.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @sell.destroy
+    respond_to do |format|
+      format.html { redirect_to sells_url, notice: 'sell was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+
+
 
   private
 
