@@ -1,57 +1,61 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
-      <h2>商品詳細</h2>
+    <div class="col-5">
+        <%= attachment_image_tag @product, :image, :fill, 350, 350, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %><!-- ジャケ写 -->
     </div>
-
-      <div class="col-5">
-          <%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg', fallback: "no_image.jpg" %><!-- ジャケ写 -->
-        </div>
-      <div class="col-7">
-        <table>
-              <tr>
-                <th>アルバム名：</th>
-                <th><%= @product.cd_title %></th>
-              </tr>
-              <tr>
-                <td>アーティスト：</td>
-                <td><%= @product.artist.artist%></td>
-              </tr>
-              <tr>
-                <td>レーベル：</td>
-                <td><%= @product.label.label%></td>
-              </tr>
-              <tr>
-                <td>在庫数：</td>
-                <td><%=@product.stock %></td>
-              </tr>
-              <tr>
-                <td>ステータス：</td>
-                <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td>
-              </tr>
-              <tr>
-                <td>ジャンル：</td>
-                <td><%= @product.genre.genre%></td>
-              </tr>
-              <tr>
-                <td>税込価格：</td>
-                <td><%=(@product.notax_price * 108/100.0).ceil %>円</td>
-              </tr>
-              <tr>
+      <div class="col-4">
+        <table class="table table-borderless">
+            <tr>
+              <th>アルバム名：</th>
+              <th><%= @product.cd_title %></th>
+            </tr>
+            <tr>
+              <td>アーティスト：</td>
+              <td><%= @product.artist.artist%></td>
+            </tr>
+            <tr>
+              <td>レーベル：</td>
+              <td><%= @product.label.label%></td>
+            </tr>
+            <tr>
+              <td>在庫数：</td>
+              <td><%=@product.stock %></td>
+            </tr>
+            <tr>
+              <td>ジャンル：</td>
+              <td><%= @product.genre.genre%></td>
+            </tr>
+            <tr>
+              <td>税込価格：</td>
+              <td><%=(@product.notax_price * 108/100.0).ceil %>円</td>
+            </tr>
+            <tr>
                 <td>
                   <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
                   <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
                   <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
                   <% end %>
-                  <td>
-              </tr>
-
-              <tr>
-          </table>
-
+                <td>
+             </tr>
+        </table>
       </div>
-      <div class="row">
-        <% @product.discs.each do |p| %><!-- ディスクNo. -->
+      <div class="col-3">
+        <table class="table table-borderless">
+          <tr>
+            <td><% if user_signed_in? %>
+              <%= button_to 'カートに入れる', line_items_path(product_id: @product), class: 'fbtn' %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>ステータス：</td>
+            <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
+          </tr>
+        </table>
+      </div>
+        <div class="row">
+        <div class="col-12">
+          <% @product.discs.each do |p| %><!-- ディスクNo. -->
           <table>
               <tr>
                 <td>NO:</td>
@@ -64,7 +68,8 @@
               </tr>
             <% end %>
           </table>
-        <% end %>
+              <% end %>
+        </div>
       </div>
   </div>
 </div>
