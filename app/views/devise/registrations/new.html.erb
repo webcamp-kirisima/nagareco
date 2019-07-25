@@ -33,7 +33,7 @@
         </tr>
 
       　　<tr>
-          <th><%= f.label :郵便番号 %></th>
+          <th><%= f.label :郵便番号 %>(ハイフン不要)</th>
           <td><%= f.text_field :zip_code, autofocus: true, autocomplete: "郵便番号", class: "form-control" %></td>
         </tr>
 
@@ -43,8 +43,8 @@
         </tr>
 
         <tr>
-          <th><%= f.label :電話番号 %></th>
-          <td><%= f.text_field :tel, autofocus: true, autocomplete: "電話番号", class: "form-control" %></td>
+          <th><%= f.label :電話番号 %>(ハイフン不要)</th>
+          <td><%= f.text_field :tel, autofocus: true, autocomplete: "電話番号(ハイフン不要)", class: "form-control" %></td>
 
         </tr>
 

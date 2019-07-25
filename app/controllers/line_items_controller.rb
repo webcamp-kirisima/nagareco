@@ -21,15 +21,26 @@ class LineItemsController < ApplicationController
   def edit
   end
 
+
+
   # POST /line_items
   # POST /line_items.json
   def create
+
 
   @cart = current_cart
 
   product = Product.find(params[:product_id])
 
-  @line_item = @cart.add_product(product.id)
+    @line_item = @cart.line_items.where(product_id: product.id).where(cart_id: @cart.id).first
+
+    if !@line_item.present?
+      @line_item = @cart.line_items.build(product: product, quantity: line_item_params[:quantity])
+    else
+      sum = @line_item.quantity + line_item_params[:quantity].to_i
+      @line_item.update(quantity: sum)
+    end
+    p @line_item
 
     respond_to do |format|
       if @line_item.save
@@ -39,7 +50,13 @@ class LineItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
+<<<<<<< HEAD
     end
+=======
+  end
+
+
+>>>>>>> develop
 end
 
   # PATCH/PUT /line_items/1
@@ -47,7 +64,7 @@ end
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
@@ -76,6 +93,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id)
+      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
     end
+
 end

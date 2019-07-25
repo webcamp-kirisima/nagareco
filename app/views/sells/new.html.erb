@@ -10,7 +10,7 @@
 			    	</thead>
 			    	<tbody>
 			    		<tr>
-				    		<td>名前：</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
+				    		<td>名前</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
 				    	</tr>
 				    	<tr>
 				    		<td>郵便番号</td><td><%= current_user.zip_code %></td>
@@ -56,13 +56,13 @@
 			    		</tr>
 			    	</thead>
 			    	<tbody>
-			    		<% current_user.cartitems.each do |i| %>
+			    		<% @cart.line_items.each do |i| %>
 				    		<tr>
-					    		<td><%=attachment_image_tag i, :image %></td>
-					    		<td>商品名：<%= i.cd_title%></td>
+					    		<td>商品画像を編集</td>
+					    		<td><%= i.product.cd_title %></td>
 					    	</tr>
 					    	<tr>
-					    		<td></td><td><%= i.notax_price %>×<%= i.quantity %>購入数　小計：￥価格</td>
+					    		<td></td><td>価格×数量　購入数　小計：￥価格</td>
 					    	</tr>
 				    	<% end %>
 			    	</tbody>
@@ -77,19 +77,19 @@
 			    	<tbody>
 			    		<tr>
 			    			<td>
-								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.check_box :pay,:checked_value => 1, :unchecked_value => 0 %>
 								<%= f.label :クレジット %>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.check_box :pay,:checked_value => 2, :unchecked_value => 0 %>
 								<%= f.label :銀行振込 %>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<%= f.check_box :pay,:checked_value => true, :unchecked_value => false %>
+								<%= f.check_box :pay,:checked_value => 3, :unchecked_value => 0 %>
 								<%= f.label :代引 %>
 							</td>
 						</tr>
