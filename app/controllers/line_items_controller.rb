@@ -27,7 +27,6 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
 
-
   @cart = current_cart
 
   product = Product.find(params[:product_id])
@@ -43,6 +42,7 @@ class LineItemsController < ApplicationController
     p @line_item
 
     respond_to do |format|
+      #@line_item.sell_id = 
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'カートに商品が追加されました。' }
         format.json { render :show, status: :created, location: @line_item }

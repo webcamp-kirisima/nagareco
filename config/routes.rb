@@ -38,5 +38,6 @@ Rails.application.routes.draw do
   get 'sells/create_conf' => "sells#create_conf"
   post 'sells/create_conf' => "sells#create_conf"
   patch 'sells/create_conf' => "sells#create_conf"
+  get 'sells/finish' => "sells#finish"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -42,7 +42,7 @@ class SellsController < ApplicationController
       if @sell.save
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
-          format.html { redirect_to products_path, notice: 'ご注文ありがとうございました。' }
+          format.html { sells_finish_path, notice: 'ご注文ありがとうございました。' }
           format.json { render json: @sell, status: :created, location: @sell }
       else
           format.html { redirect_to products_path }
@@ -55,7 +55,7 @@ class SellsController < ApplicationController
   def update
     respond_to do |format|
       if @sell.update(sell_params)
-        format.html { redirect_to products_path, notice: 'sell was successfully updated.' }
+        format.html { redirect_to @sell, notice: 'sell was successfully updated.' }
         format.json { render :show, status: :ok, location: @sell }
       else
         format.html { redirect_to products_path }
@@ -72,10 +72,17 @@ class SellsController < ApplicationController
     end
   end
 
+  def finish
+  end
+
 
 
 
   private
+
+  def set_sell
+      @sell = Sell.find(params[:id])
+    end
 
   def sell_params
       params.require(:sell).permit( :user_id, :pay, :ship_address, :ship_tel, :ship_code, :ship_name, :total)

@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 
 
 	def self.select_shop
-	where("date <= ?","now()").order(title: "ASC")
+	where("date <= ?","now()").sell(cd_title: "ASC")
     end
 	accepts_nested_attributes_for :discs, allow_destroy: true
 
