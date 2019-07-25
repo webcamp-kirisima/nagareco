@@ -10,45 +10,55 @@ class SellsController < ApplicationController
   end
 
   def new
-  @cart = current_cart
-  if @cart.line_items.empty?
-    redirect_to market_url, notice: 'カートは空です。'
-    return
+    @cart = current_cart
+    if @cart.line_items.empty?
+       redirect_to products_path, notice: 'カートは空です。'
+      return
+    end
+
+    @sell = Sell.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @sell }
+    end
   end
 
-  @sell = Sell.new
-
-  respond_to do |format|
-    format.html
-    format.json { render json: @sell }
-  end
-  end
-
-  def edit
-  end
-
-
-  def create
+  def create_conf
+    @cart = current_cart
     @sell = Sell.new(sell_params)
 
     respond_to do |format|
+      format.html
+      format.json { render json: @sell }
+    end
+  end
+
+  def create
+    @sell = Sell.new(sell_params)
+    @sell.add_items(current_cart)
+
+    respond_to do |format|
       if @sell.save
-        format.html { redirect_to @sell, notice: 'sell was successfully created.' }
-        format.json { render :show, status: :created, location: @sell }
+          Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil
+          format.html { redirect_to products_path, notice: 'ご注文ありがとうございました。' }
+          format.json { render json: @sell, status: :created, location: @sell }
       else
-        format.html { render :new }
-        format.json { render json: @sell.errors, status: :unprocessable_entity }
+          format.html { redirect_to products_path }
+          format.json { render json: @sell.errors, status: :unprocessable_entity }
       end
     end
   end
 
+
   def update
     respond_to do |format|
       if @sell.update(sell_params)
-        format.html { redirect_to @sell, notice: 'sell was successfully updated.' }
+        format.html { redirect_to products_path, notice: 'sell was successfully updated.' }
         format.json { render :show, status: :ok, location: @sell }
       else
-        format.html { render :edit }
+        format.html { redirect_to products_path }
         format.json { render json: @sell.errors, status: :unprocessable_entity }
       end
     end

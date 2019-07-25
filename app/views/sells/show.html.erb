@@ -1,148 +1,54 @@
-<div class="container">
-	<div class="row">
-		<div class="col-8">
-		    <table style="width:100%; "cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-		    			<td>お客様情報</td>
-		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-			    		<td>ユーザーネーム様</td>
-			    	</tr>
-			    	<tr>
-			    		<td>〒　郵便番号</td>
-			    	</tr>
-			    	<tr>
-			    		<td>住所</td>
-			    	</tr>
-			    	<tr>
-			    		<td>電話番号</td>
-			    	</tr>
-		    	</tbody>
-		    </table>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<br>
+<h1>注文情報の表示</h1>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>数量</th>
+      <th>金額</th>
+    </tr>
+  </thead>
 
-		    <table style="width:100%;" cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-		    			<td colspan="2">商品情報</td>
-		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-			    		<td>商品画像</td><td>商品名</td>
-			    	</tr>
-			    	<tr>
-			    		<td></td><td>税込価格×購入数　小計：￥価格</td>
-			    	</tr>
-		    	</tbody>
-		    </table style="width:100%;">
-		    <div class="accordion" id="accordion2" role="tablist">
-			  <div class="card">
-			    <div class="card-header" role="tab" id="heading1">
-			      <h5 class="mb-0">
-			        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1"> お届け先を指定する </a>
-			      </h5>
-			    </div>
+  <tbody>
 
-			    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
-				     <div class="card-body">
+	<% @sell.line_items.each do |i| %>
+          <tr>
+		<td><%= i.product.product_id %></td>
+		<td><%= i.product.title %></td>
+		<td><%= i.quantity %></td>
+		<td><%= (i.total_price).to_i %>円</td>
+          </tr>
+	<% end %>
+  </tbody>
+</table>
+<br>
+<p>
+  <strong>【注文ID:】 </strong>
+  <%= @sell.id %>
+</p>
 
-						<table  border="1" bordercolor="#4682B4" cellpadding="25" style="width:100%" cellpadding="15">
-					        <tr>
-								<th>宛先</th>
-								<td>宛先入力</td>
-							</tr>
-							<tr>
-								<th>郵便番号</th>
-								<td>郵便番号入力</td>
-							</tr>
-							<tr>
-								<th>住所</th>
-								<td>住所入力</td>
-							</tr>
-							<tr>
-								<th>住所</th>
-								<td>配送先住所入力</td>
-							</tr>
-							<tr>
-								<th>電話番号</th>
-								<td>電話番号入力</td>
-							</tr>
+<p>
+  <strong>【氏名:】 </strong>
+  <%= @sell.ship_name %>
+</p>
 
-						</table>
-					</div>
-			  	</div>
+<p>
+  <strong>【住所:】 </strong>
+  <%= @sell.ship_address %>
+</p>
 
-			  </div>
-			  <div class="card">
-			    <div id="heading3">
-			    </div>
-			  </div>
-			</div>
-			<table style="width:100%;" cellpadding="15">
-		    	<thead class="sell_head">
-		    		<tr>
-			    		<td>お支払い方法</td>
-			    	</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-		    			<td>
-			    			<div class="custom-control custom-radio">
-							  <input id="customRadio1" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio1">クレジット</label>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="custom-control custom-radio">
-							  <input id="customRadio2" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio2">銀行振込</label>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="custom-control custom-radio">
-							  <input id="customRadio3" name="customRadio" type="radio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio3">代引</label>
-							</div>
-						</td>
-					</tr>
-		    	</tbody>
-			</table>
-		</div>
-        <div class="col-4">
-			<div>
-				<div>
-					<table style="width:100%;" cellpadding="15">
-				    	<thead>
-				    		<tr>
-					    		<td>小計</td><td>￥金額</td>
-					    	</tr>
-					    	<tr>
-					    		<td>送料</td><td>￥送料</td>
-					    	</tr>
-				    	</thead>
-				    	<tbody>
-				    		<tr>
-				    			<td>合計</td><td>￥合計金額</td>
-				    		</tr>
-				    		<tr>
-				    			<td colspan="2">
-							    	<div class="btn-group-vertical btn-block" role="group" aria-label="積み重ねボタングループ">
-										<a class="btn btn-danger btn-block" href="#" role="button">確認する</a>
-										<a class="btn btn-secondary btn-block" href="#" role="button">カートへ戻る</a>
-									</div>
-								</td>
-				    		</tr>
-				    	</tbody>
-			    	</table>
-		    	</div>
-			</div>
-		</div>
-	</div>
-</div>
+<p>
+  <strong>【電話番号:】 </strong>
+  <%= @sell.ship_tel %>
+</p>
+
+<p>
+  <strong>【支払い方法:】 </strong>
+  <%= @sell.pay %>
+</p>
+<%= link_to '戻る', sellss_path, class: 'btn' %>
