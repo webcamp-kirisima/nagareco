@@ -32,7 +32,7 @@
 			    	<tbody>
 			    		<tr>
 							<td><%= f.label :受取人氏名 %></td>
-							<td><%= @sell.ship_name %><%= f.hidden_field :ship_name %></td>
+							<td><%= @sell.ship_l_name %> <%= @sell.ship_f_name %> 様<%= f.hidden_field :ship_l_name %><%= f.hidden_field :ship_f_name %></td>
 				    	</tr>
 				    	<tr>
 				    		<td><%= f.label :郵便番号 %></td>
@@ -63,7 +63,8 @@
 					    	</tr>
 					    	<tr>
 					    		<td><%= attachment_image_tag i.product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
-					    		<td>価格：<%= i.product.notax_price * 108/100 %>　小計：<%= i.product.notax_price * 108/100 * i.quantity %></td>
+					    		<td>価格：<%= i.product.notax_price * 108/100 %>　小計：<%= i.product.notax_price * 108/100 * i.quantity %>
+					    		</td>
 					    	</tr>
 				    	<% end %>
 			    	</tbody>
