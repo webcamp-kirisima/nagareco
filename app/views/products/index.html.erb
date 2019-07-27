@@ -8,53 +8,68 @@
 			<div class="image5"></div>
 	 	</div>
 	</div>
+</div>
+<div class="container">
 	<div class="row">
-		<div class="col-8">
+		<div class="col-8 card">
 			<% @products.each do |p| %>
+				<div class="container">
+					<div class="row">
+						<div class="col-4">
+							<%= link_to (product_path(p.id)) do %>
+							<%= attachment_image_tag p, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
+							<% end %>
+						</div>
+						<div class="col-8">
+							<table class="table">
+								<tr>
+									<th>アルバム名：</th>
+									<th colspan="2"><%= p.cd_title %></th>
+								</tr>
+								<tr>
+									<td>アーティスト：</td>
+									<td colspan="2"><%= p.artist.artist %></td><!-- アーティスト -->
+								</tr>
+								<tr>
+									<td>税込価格：</td>
+									<td><%=(p.notax_price * 108/100.0).ceil %>円</td>
+									<td><%=link_to "詳細", product_path(p.id)%></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			<div class="card">
+			<%= paginate @products %>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="card bg-light mb-3">
+				  <div class="card-header">管理人のおすすめ
+				  </div>
+				<div class="card-body">
+					<% @product_randoms.each do |r| %>
 				<div class="row">
 					<div class="col-4">
-						<%= link_to (product_path(p.id)) do %>
-							<%= attachment_image_tag p, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
+						<%= link_to product_path(r.id) do %>
+							<%= attachment_image_tag r, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" ,class: "d-block mx-auto",class: "img-fluid" %>
 						<% end %>
 					</div>
 					<div class="col-8">
-						<table>
+						<table class="table" style="font-size: 3pt;">
 							<tr>
-								<th>アルバム名：</th>
-								<th colspan="2"><%= p.cd_title %></th>
+								<th><%= r.cd_title %></th>
 							</tr>
 							<tr>
-								<td>アーティスト：</td>
-								<td colspan="2"><%= p.artist.artist %></td><!-- アーティスト -->
-							</tr>
-							<tr>
-								<td>税込価格：</td>
-								<td><%=(p.notax_price * 108/100.0).ceil %>円</td>
-								<td><%=link_to "詳細", product_path(p.id)%></td>
+								<td><%= r.artist.artist%></td>
 							</tr>
 						</table>
 					</div>
 				</div>
-			<% end %>
-			<%= paginate @products -%>
-		</div>
-		<div class="col-4">
-			<h4>管理人おすすめ</h4>
-			<% @product_randoms.each do |r| %>
-				<div class="row">
-					<%= link_to product_path(r.id) do %>
-						<%= attachment_image_tag r, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
-					<% end %>
-					<table class="table table-dark">
-						<tr>
-							<th><%= r.cd_title %></th>
-						</tr>
-						<tr>
-							<td><%= r.artist.artist%></td>
-						</tr>
-					</table>
+				<% end %>
 				</div>
-			<% end %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -29,6 +29,14 @@
               <td>税込価格：</td>
               <td><%=(@product.notax_price * 108/100.0).ceil %>円</td>
             </tr>
+            <tr>
+                <td>
+                  <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
+                  <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
+                  <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
+                  <% end %>
+                <td>
+             </tr>
         </table>
       </div>
       <div class="col-3">
@@ -42,8 +50,7 @@
                 <td>
               </tr>
           <tr>
-            <td>ステータス：</td>
-            <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
+            <td clospan ="2"><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
           </tr>
         </table>
       </div>

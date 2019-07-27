@@ -1,3 +1,43 @@
 // Place all the styles related to the admin::products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.products {
+  color: #333333;
+  background-color: #F2F2F2;
+  .headline {
+    text-align: center;
+  }
+  nav {
+    background-color: #112d4e;
+  }
+  footer {
+    background-color: #112d4e;
+  }
+  .card {
+    background-color: #f9f7f7;
+  }
+  .w-100 {
+    color: #fff;
+    background-color: #4585f4;
+    border-color: #F2F2F2;
+  }
+  .btn-add {
+    color: #fff;
+    background-color: #4585f4;
+  }
+  .btn-delete {
+    color: #fff;
+    background-color: #dc143c;
+  }
+  .btn-reg {
+    color: #fff;
+    background-color: #32cd32;
+  }
+  .genre-icon {
+    color: #fff;
+    background-color: #ff8c00;
+  }
+  .cont-colle {
+    background-color: #fff;
+  }
+}
