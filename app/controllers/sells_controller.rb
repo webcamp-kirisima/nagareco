@@ -1,8 +1,6 @@
 class SellsController < ApplicationController
 
 
-  #before_action :set_sell, only: [:show, :edit, :update, :destroy]
-
   # GET /sells
   # GET /sells.json
   def index
@@ -11,25 +9,20 @@ class SellsController < ApplicationController
 
   # GET /sells/1
   # GET /sells/1.json
-  # def show
-  # end
+  def show
+  end
 
   # GET /sells/new
 
   def new
-  @cart = current_cart
-  #binding.pry
-  if @cart.line_items.empty?
-    redirect_to sells_path, notice: 'カートは空です。'
-    return
-  end
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to sells_path, notice: 'カートは空です。'
+      return
+    end
 
-  @sell = Sell.new
+    @sell = Sell.new
 
-  respond_to do |format|
-    format.html
-    format.json { render json: @sell }
-  end
   end
 
   def create_conf
@@ -48,9 +41,21 @@ class SellsController < ApplicationController
   # POST /sells.json
   def create
     @sell = Sell.new(sell_params)
+    @cart = current_cart
     @sell.user_id = current_user.id
+
+    
     if @sell.save
-      redirect_to sells_finish_path
+      @cart.line_items.each do |line_item|
+        @sell_detail = SellDetail.new
+        @sell_detail.sell_id = @sell.id
+        @sell_detail.product_id = line_item.product_id
+        @sell_detail.quantity = line_item.quantity
+        @sell_detail.save
+        line_item.destroy
+      end
+
+       redirect_to sells_finish_path
     else
       redirect_to new_sell_path
 
@@ -85,13 +90,8 @@ class SellsController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_sell
-    #   @sell = Sell.find(params[:id])
-    # end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def sell_params
-      params.require(:sell).permit(:ship_name, :ship_code, :ship_address, :ship_tel, :pay)
+      params.require(:sell).permit(:ship_l_name, :ship_f_name, :ship_code, :ship_address, :ship_tel, :pay)
     end
 end
