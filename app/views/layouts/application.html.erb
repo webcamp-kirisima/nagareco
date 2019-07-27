@@ -12,89 +12,97 @@
   </head>
 
   <body class="<%= "#{controller.controller_name}" %>">
-    <nav class="navbar navbar-expand-lg" style="margin-bottom:80px;">
-        <a class="navbar-logo" href="/"><%= image_tag('image7.jpg') %></a>
-        <button type="button" class="navbar-toggler fas fa-outdent navbar-dark" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替" style="color:white;" >
-        </button>
-        <div class="collapse navbar-collapse" id="Navber">
-          <% if admin_signed_in? %>
-            <ul class="navbar-nav mr-auto">
-              <li class="mr-2">
+    <header class="sticky-top">
+      <nav class="navbar">
+        <a class="navbar-brand" href="/"><%= image_tag('image7.jpg') %></a>
+        <div class="nav-content">
+          <ul class="list-group list-group-horizontal nav-list">
+            <% if admin_signed_in? %>
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "管理者メニュー", admin_top_path %>
               </li>
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "商品新規登録", new_admin_product_path %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "商品一覧", admin_products_path %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "ユーザー一覧", admin_users_path %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "注文一覧", admin_products_path %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
-          <% elsif user_signed_in? %>
-            <ul>
-              <li class="mr-2">
+            <% elsif user_signed_in? %>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-compact-disc"></i>
                 <%= link_to "Top画面", root_path %>
               </li>
 
-              <li class="mr-2">
-                <%= link_to "マイページ", user_path(current_user.id) %>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-user"></i>
+                <%= link_to current_user.last_name, user_path(current_user.id) %>
+                  <sapn> 様</sapn>
+                </%>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-shopping-cart"></i>
                 <%= link_to "カート", cart_path(current_cart.id) %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-info"></i>
                 <%= link_to "アバウト", about_path %>
               </li>
 
-              <li class="mr-2">
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-sign-out-alt"></i>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
-          <% else %>
-              <ul>
-                <li class="mx-2">
-                  <%= link_to "Top画面", root_path %>
-                </li>
+            <% else %>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-compact-disc"></i>
+                <%= link_to "Top画面", root_path %>
+              </li>
 
-                <li class="mr-2">
-                  <%= link_to "アバウト", about_path %>
-                </li>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-info"></i>
+                <%= link_to "アバウト", about_path %>
+              </li>
 
-                <li class="mr-2">
-                  <%= link_to "アカウント作成", new_user_registration_path %>
-                </li>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-user-circle"></i>
+                <%= link_to "アカウント作成", new_user_registration_path %>
+              </li>
 
-                <li class="mr-2">
-                  <%= link_to "ログイン", new_user_session_path %>
-                </li>
-              </ul>
-          <% end %>
+              <li class="list-inline-item nav-list-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <%= link_to "ログイン", new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+          <div class="search">
+            <%= search_form_for @search do |f| %>
+              <%= f.search_field :cd_title_cont %>
+              <%= button_tag type: "submit", class: "btn btn-info", style: "margin-bottom: 3px;" do %>
+                <i class="fas fa-search"></i><span> 検索</span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-
-      <%= search_form_for @search do |f| %>
-        <%= f.label :cd_title_cont, "商品名を含む" %>
-        <%= f.search_field :cd_title_cont %>
-        <div class="actions">
-          <%= f.submit "検索" %>
-        </div>
-      <% end %>
-    </nav>
-
+      </nav>
+    </header>
     <%= yield %>
 
-    <footer style="margin-top:80px; height:50px; color: white">
+    <footer class="fixed-bottom">
       <p class="text-right">
       CopyRight Nagareco.inc
       </p>

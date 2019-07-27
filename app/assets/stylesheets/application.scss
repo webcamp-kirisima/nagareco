@@ -18,17 +18,37 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.navbar {
-	background-color: #f38181;
+header {
+	margin-bottom: 50px;
+	background-color: #de9610;
+	color: #444;
 }
-body {
-	background-color: #f0f8ff;
-}
+
 footer {
-	background-color: #f38181;
+	height: 45px;
+	margin-top: 50px;
+	background-color: #de9610;
+	color: #444;
 }
-.card-body {
-	background-color: #fce38a;
+
+a {
+	color: #444;
+	text-decoration: none;
+}
+a:visited {
+	color: #444;
+}
+
+.nav-content {
+	font-size: 20px;
+}
+
+.nav-list {
+	padding-bottom: 15px;
+}
+
+.search {
+	text-align: right;
 }
 
 .image1{
