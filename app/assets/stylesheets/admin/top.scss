@@ -2,18 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .top {
-  color: #333333;
-  background-color: #F2F2F2;
-  h2 {
+  .headline {
     text-align: center;
-  }
-  nav {
-    background-color: #112d4e;
-  }
-  footer {
-    background-color: #112d4e;
-  }
-  .card {
-    background-color: #f9f7f7;
   }
 }

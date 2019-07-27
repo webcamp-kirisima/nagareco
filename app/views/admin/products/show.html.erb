@@ -29,7 +29,7 @@
           <p>ディスクNo.<%= p.disc_num %></p>
           <ol class="list-inline">
             <% p.songs.each do |s| %> <!-- 曲名 -->
-             <li class="list-inline-item"><%= s.song %></li>
+             <li class="list-inline-item"><%= s.track_num %>.<%= s.song %></li>
             <% end %>
           </ol>
         <% end %>

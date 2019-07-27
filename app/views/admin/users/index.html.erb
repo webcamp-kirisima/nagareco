@@ -4,12 +4,12 @@
       <h2>ユーザー一覧</h2>
     </div>
     <table class="table table-bordered text-center" style="height: 100px;">
-      <thead>
+      <thead class="thead thead-dark">
         <tr>
-          <td>id</td>
-          <td>苗字</td>
-          <td>名前</td>
-          <td></td>
+          <th>id</th>
+          <th>苗字</th>
+          <th>名前</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -18,7 +18,7 @@
           <td class="align-middle"><%= user.id %></td>
           <td class="align-middle"><%= user.last_name %></td>
           <td class="align-middle"><%= user.first_name %></td>
-          <td class="align-middle"><%= link_to "詳細", admin_user_path(user.id) %></td>
+          <td class="align-middle"><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-add" %></td>
         </tr>
         <% end %>
       </tbody>
