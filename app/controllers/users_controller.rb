@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   end
 
   def index
-      @users = User.all
+      @user = User.find(params[:id])
+      @users = User.page(params[:page]).per(5)
   end
 
   def destroy

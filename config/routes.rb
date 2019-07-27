@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'sells/finish' => "sells#finish"
 
   resources :line_items
   resources :carts
@@ -35,6 +36,9 @@ Rails.application.routes.draw do
   get 'search', to: 'products#search'
   get'admin/top' => 'admin/top#top'
   get 'about' => 'home#about'
-
+  get 'sells/create_conf' => "sells#create_conf"
+  post 'sells/create_conf' => "sells#create_conf"
+  patch 'sells/create_conf' => "sells#create_conf"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
