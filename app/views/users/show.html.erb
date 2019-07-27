@@ -1,11 +1,20 @@
 <div class="container col-12 clearfix">
   <div class="container col-10">
+
+  	<table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
+		<tr>
+			<th style="width:30%">注文情報確認</th>
+		    <td style="width:70%"><%= link_to "注文情報確認", sells_path, class: "btn btn-info btn-block" %></td>
+		</tr>
+	</table>
+
 	<table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
 		<tr>
 			<th style="width:30%">アカウント情報</th>
 			<td style="width:40%">アカウント情報やパスワードの変更ができます</td>
 		    <td style="width:30%"><%= link_to "アカウント管理", edit_user_path, class: "btn btn-info btn-block" %></td>
 		</tr>
+	</table>
 
 	<table  border="1" bordercolor="#4682B4" cellpadding="25" style="width:100%; border-collapse:separate;">
 		<tr>

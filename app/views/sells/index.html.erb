@@ -1,1 +1,43 @@
-index.html.erb
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>注文一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>注文ID</th>
+      <th>注文内容</th>
+      <th>氏名</th>
+      <th>住所</th>
+      <th>電話番号</th>
+      <th>支払い方法</th>
+      <th></th>
+      <th></th>
+  </thead>
+
+  <tbody>
+    <% @sells.each do |s| %>
+      <tr>
+		<td><%= s.id %></td>
+
+		<td>
+			<% s.line_items.each do |i| %>
+				[商品ID:<%= i.product.product_id %>]
+				[商品名：<%= i.product.cd_title %>]
+				[数量：<%= i.product %>]
+				[金額：<%= (item.total_price).to_i %>円]
+		<% end %>
+		</td>
+        <td><%= s.ship_name %></td>
+        <td><%= s.ship_address %></td>
+        <td><%= s.ship_tel %></td>
+        <td><%= s.pay %></td>
+        <td><%= link_to '詳細', sell_path(s.id), class: "btn btn-info btn-block" %></td>
+        <td><%= link_to '削除', sell, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: "btn btn-info btn-block" %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
