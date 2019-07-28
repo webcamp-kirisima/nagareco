@@ -19,13 +19,13 @@
       <div class="col-3 float-right">
         <table>
           <tr>
-            <td>小計：￥<%=(@product.notax_price * 108/100.0).ceil %>円</td>
+            <td>小計：￥<%= @sell_detail.price %>円</td>
           </tr>
           <tr>
             <td>購入数：<%= @sell_detail.quantity %></td>
           </tr>
           <tr>
-            <td>合計金額：￥<%=(@product.notax_price * 108/100.0).ceil*@sell_detail.quantity %>円</td>
+            <td>合計金額：￥<%=(@sell_detail.price)*@sell_detail.quantity %>円</td>
           </tr>
         </table>
       </div>
