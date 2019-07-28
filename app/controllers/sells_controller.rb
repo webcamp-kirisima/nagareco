@@ -46,6 +46,7 @@ class SellsController < ApplicationController
     @sell = Sell.new(sell_params)
     @cart = current_cart
     @sell.user_id = current_user.id
+    @sell.total = (@cart.total_price).to_i * 108/100 + 500
 
     if @sell.save
       @cart.line_items.each do |line_item|
@@ -53,6 +54,7 @@ class SellsController < ApplicationController
         @sell_detail.sell_id = @sell.id
         @sell_detail.product_id = line_item.product_id
         @sell_detail.quantity = line_item.quantity
+        @sell_detail.price = line_item.product.notax_price * 108/100
         @sell_detail.save
         @product = Product.find(@sell_detail.product_id)
         @product.stock -= @sell_detail.quantity
