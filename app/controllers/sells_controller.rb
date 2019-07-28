@@ -1,5 +1,6 @@
 class SellsController < ApplicationController
 
+
   # GET /sells
   # GET /sells.json
   def index
@@ -15,6 +16,7 @@ class SellsController < ApplicationController
   end
 
   # GET /sells/new
+
   def new
     @cart = current_cart
     if @cart.line_items.empty?
@@ -59,6 +61,7 @@ class SellsController < ApplicationController
        redirect_to sells_finish_path
     else
       redirect_to new_sell_path
+
     end
   end
 
@@ -76,15 +79,18 @@ class SellsController < ApplicationController
     end
   end
 
+
   # DELETE /sells/1
   # DELETE /sells/1.json
   def destroy
     @sell.destroy
     respond_to do |format|
+
       format.html { redirect_to sells_path, notice: 'sell was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
 
   private
 
