@@ -9,6 +9,9 @@ class SellsController < ApplicationController
   # GET /sells/1
   # GET /sells/1.json
   def show
+      @sell = Sell.find(params[:id])
+      @sell_details = @sell.sell_details
+      @product = Product.find(@sell_details.product_id)
   end
 
   # GET /sells/new

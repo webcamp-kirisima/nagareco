@@ -1,42 +1,23 @@
 <h1>注文一覧</h1>
 
 <div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th>注文ID</th>
-        <th>注文内容</th>
-        <th>氏名</th>
-        <td>郵便番号</td>
-        <th>電話番号</th>
-        <th>住所</th>
-        <th>支払い方法</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @sells.each do |s| %>
-        <tr>
-  		    <td><%= s.id %></td>
-           <% s.sell_details.each do |sd| %>
-           <% product = Product.find(sd.product_id) %>
-           <td><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
-           </td>
-           <td><%= product.cd_title %></td>
-           <td><%= product.notax_price %>✖︎<%= sd.quantity %></td>
-         </tr>
-           <% end %>
-          <td></td>
-          <td><%= s.ship_l_name %> <%= s.ship_f_name %>様 </td>
-          <td><%= s.ship_code %></td>
-          <td><%= s.ship_address %></td>
-          <td><%= s.ship_tel %></td>
-          <td><%= s.pay %></td>
-          <td><%= link_to "詳細", sell_path(s.id) %></td>
-        </tr>
-  		<% end %>
-    </tbody>
-  </table>
+  <% @sells.each do |s| %>
+    <% s.sell_details.each do |sd| %>
+    <% product = Product.find(sd.product_id) %>
+    <div class="row order">
+      <div class="col-3">
+        <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
+      </div>
+      <div class="col-9 row">
+        <div class="col-10">
+          <%= product.cd_title %><br/>
+          <%= product.artist.artist %>
+        </div>
+        <div class="2">
+          <%= link_to "詳細", sell_path(s.id) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+<% end %>
 </div>

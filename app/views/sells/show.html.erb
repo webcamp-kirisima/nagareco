@@ -1,54 +1,9 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<br>
-<h1>注文情報の表示</h1>
-<br>
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>数量</th>
-      <th>金額</th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-	<% @sell.line_items.each do |i| %>
-          <tr>
-		<td><%= i.product.product_id %></td>
-		<td><%= i.product.title %></td>
-		<td><%= i.quantity %></td>
-		<td><%= (i.total_price).to_i %>円</td>
-          </tr>
-	<% end %>
-  </tbody>
-</table>
-<br>
-<p>
-  <strong>【注文ID:】 </strong>
-  <%= @sell.id %>
-</p>
-
-<p>
-  <strong>【氏名:】 </strong>
-  <%= @sell.ship_name %>
-</p>
-
-<p>
-  <strong>【住所:】 </strong>
-  <%= @sell.ship_address %>
-</p>
-
-<p>
-  <strong>【電話番号:】 </strong>
-  <%= @sell.ship_tel %>
-</p>
-
-<p>
-  <strong>【支払い方法:】 </strong>
-  <%= @sell.pay %>
-</p>
-<%= link_to '戻る', sellss_path, class: 'btn' %>
+<div class="container">
+    <div class="row order">
+      <div class="col-3">
+        <%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
+      </div>
+      <div class="col-9 row">
+      </div>
+    </div>
+</div>
