@@ -4,7 +4,7 @@
       <h2>注文一覧</h2>
     </div>
     <table class="table table-bordered text-center" style="height: 100px;">
-      <thead class="thead thead-dark">
+      <thead class="thead thead-light">
         <tr>
           <th class="align-middle">注文ID</th>
           <th class="align-middle">受注日</th>
@@ -17,14 +17,16 @@
       <tbody>
         <%= @sells.each do |s| %>
           <tr>
-            <td class="align-middle"><%=  %></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
+            <td class="align-middle"><%= s.sell_id %></td>
+            <td class="align-middle"><%= s.created_at %></td>
+            <td class="align-middle"><%= s.user_id.last_name %></td>
+            <td class="align-middle"><%= s.total %></td>
+            <td class="align-middle"><%= s.status %></td>
             <td class="align-middle"></td>
           </tr>
+        <% end %>
       </tbody>
     </table>
+    <%= paginate @products %>
   </div>
 </div>

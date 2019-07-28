@@ -10,7 +10,7 @@
 			    	</thead>
 			    	<tbody>
 			    		<tr>
-				    		<td>名前</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
+				    		<td>名前</td><td><%= current_user.last_name %> <%= current_user.first_name %> 様</td>
 				    	</tr>
 				    	<tr>
 				    		<td>郵便番号</td><td><%= current_user.zip_code %></td>
@@ -31,8 +31,17 @@
 			    	</thead>
 			    	<tbody>
 			    		<tr>
-							<td><%= f.label :受取人氏名 %></td>
-							<td><%= f.text_field :ship_name, :value => current_user.last_name, class: "form-control" %></td>
+							<td>受取人氏名</td>
+							<td class="form-row">
+								<div class="col">
+									<%= f.label :姓, class: "name_form" %>
+									<%= f.text_field :ship_l_name, :value => current_user.last_name, class: "form-control" %>
+							    </div>
+		                        <div class="col">
+									<%= f.label :名, class: "name_form" %>
+									<%= f.text_field :ship_f_name, :value => current_user.first_name, class: "form-control" %>
+								</div>
+							</td>
 				    	</tr>
 				    	<tr>
 				    		<td><%= f.label :郵便番号 %></td>
