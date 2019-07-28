@@ -24,4 +24,13 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = cart.id
       cart
     end
+
+    def after_sign_in_path_for(resource_or_scope)
+      if resource_or_scope == :admin
+         admin_top_path
+      else
+         resource_or_scope == :user
+         root_path
+      end
+    end
 end
