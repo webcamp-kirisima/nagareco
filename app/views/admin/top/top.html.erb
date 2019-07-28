@@ -1,18 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-md-2 card　card-body bg-light p-5">
-      <div class="headline">
-        <h2>管理者メニュー</h2>
-      </div>
-      <div class="row">
-        <div class="col-6 offset-md-3 btn-group-vertical">
-          <%= link_to "商品の新規登録", new_admin_product_path,class: "btn btn-danger" %>
+<div class="admin-menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-md-2 card　card-body bg-light p-5">
+        <div class="headline">
+          <h2>管理者メニュー</h2>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6 offset-md-3 btn-group-vertical">
+            <%= link_to "商品の新規登録", new_admin_product_path,class: "btn btn-danger btn-item" %>
 
-          <%= link_to "商品一覧", admin_products_path, class: "btn btn-success" %>
+            <%= link_to "商品一覧", admin_products_path, class: "btn btn-success btn-item" %>
 
-          <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-primary" %>
+            <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-primary btn-item" %>
 
-          <%= link_to "注文管理一覧", admin_sells_path, class: "btn btn-warning" %>
+            <%= link_to "注文一覧", admin_sells_path, class: "btn btn-warning btn-item" %>
+          </div>
         </div>
       </div>
     </div>

@@ -5,8 +5,6 @@ class Product < ApplicationRecord
 
 	has_many :discs,  dependent: :destroy
 	has_many :songs, through: :discs
-	has_many :cartitems, dependent: :destroy
-	before_destroy :referenced_by_cartitems
 	attachment :image
 	has_many :line_items
   	before_destroy :referenced_by_line_item

@@ -1,18 +1,18 @@
 <div class="container col-12">
-	<div class="container col-10">
+	<div class="container col-10  col-10 card card-body bg-light p-4">
 		<table  border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
-			 <%= form_for(@user) do |f| %>
-	            <tr>
+			<%= form_for(@user) do |f| %>
+	      <tr>
 					<th>名前</th>
 					<td class="form-row">
 						<div class="col">
 							<%= f.label :姓, class: "name_form" %>
 							<%= f.text_field :last_name, class: "form-control" %>
-					    </div>
-                        <div class="col">
+					  </div>
+            <div class="col">
 							<%= f.label :名, class: "name_form" %>
 							<%= f.text_field :first_name, class: "form-control" %>
-					    </div>
+					   </div>
 					</td>
 				</tr>
 				<tr>
@@ -21,11 +21,11 @@
 						<div class="col">
 							<%= f.label :セイ, class: "name_form" %>
 							<%= f.text_field :last_kana, class: "form-control" %>
-					    </div>
-                        <div class="col">
+					  </div>
+            <div class="col">
 							<%= f.label :メイ, class: "name_form" %>
 							<%= f.text_field :first_kana, class: "form-control" %>
-					    </div>
+					  </div>
 					</td>
 				</tr>
 
@@ -55,9 +55,8 @@
 				</tr>
 
 				<tr>
-					<td colspan="2"><%= f.submit "変更を確定する", class: "btn btn-primary btn-block" %></td>
+					<td colspan="2"><%= f.submit "変更", class: "btn btn-primary btn-block" %></td>
 				</tr>
-
 			<% end %>
 		</table>
 	</div>
