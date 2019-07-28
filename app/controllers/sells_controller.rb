@@ -45,7 +45,6 @@ class SellsController < ApplicationController
     @cart = current_cart
     @sell.user_id = current_user.id
 
-    
     if @sell.save
       @cart.line_items.each do |line_item|
         @sell_detail = SellDetail.new
@@ -53,9 +52,11 @@ class SellsController < ApplicationController
         @sell_detail.product_id = line_item.product_id
         @sell_detail.quantity = line_item.quantity
         @sell_detail.save
+        @product = Product.find(@sell_detail.product_id)
+        @product.stock -= @sell_detail.quantity
+        @product.save
         line_item.destroy
       end
-
        redirect_to sells_finish_path
     else
       redirect_to new_sell_path
