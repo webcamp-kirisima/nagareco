@@ -49,11 +49,11 @@
 				    	</tr>
 				    	<tr>
 				    		<td><%= f.label :住所 %></td>
-							<td><%= f.text_field :ship_address, :value => current_user.tel, class: "form-control" %></td>
+							<td><%= f.text_field :ship_address, :value => current_user.address, class: "form-control" %></td>
 				    	</tr>
 				    	<tr>
 				    		<td><%= f.label :電話番号 %></td>
-							<td><%= f.text_field :ship_tel, :value => current_user.address, class: "form-control" %></td>
+							<td><%= f.text_field :ship_tel, :value => current_user.tel, class: "form-control" %></td>
 				    	</tr>
 			    	</tbody>
 			    </table>
@@ -113,7 +113,7 @@
 					    			<td colspan="2">
 								    	<div class="btn-group-vertical btn-block" role="group" aria-label="積み重ねボタングループ">
 											<%= f.submit "確認する", class: "btn btn-danger btn-block"%>
-											<a class="btn btn-secondary btn-block" href="#" role="button">カートへ戻る</a>
+											<%= link_to "カートに戻る", cart_path(@cart), class: "btn btn-secondary btn-block" %>
 										</div>
 									</td>
 					    		</tr>
