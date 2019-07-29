@@ -19,31 +19,34 @@
   </div>
 </div>
 <div class="container">
-  <table>
-    <tr>
-      <td>購入者：</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
-    </tr>
-    <tr>
-      <td>受取人氏名：</td><td><%= @sell.ship_l_name %> <%= @sell.ship_f_name %>様</td>
-    </tr>
-      <td>郵便番号：</td><td><%= @sell.ship_code %></td>
-    <tr>
-      <td>住所：</td><td><%= @sell.ship_address %></td>
-    </tr>
-    <tr>
-      <td>電話番号：</td><td><%= @sell.ship_tel %></td>
-    </tr>
-  </table>
-</div>
-  <div class="col-5 order">
-    <table>
-      <tr>
-        <th>合計金額：￥<%= (@sell_detail.price).to_i * (@sell_detail.quantity).to_i %>円</th>
-      </tr>
-      <tr>
-        <th>支払い情報</th>
-      </tr>
-        <td><%= @sell.pay %></td>
-    </table>
+  <div class="row">
+    <div class="card card-body bg-light p-3 col-5" >
+      <table>
+        <tr>
+          <td>購入者：</td><td><%= current_user.last_name %> <%= current_user.first_name %>様</td>
+        </tr>
+        <tr>
+          <td>受取人氏名：</td><td><%= @sell.ship_l_name %> <%= @sell.ship_f_name %>様</td>
+        </tr>
+          <td>郵便番号：</td><td><%= @sell.ship_code %></td>
+        <tr>
+          <td>住所：</td><td><%= @sell.ship_address %></td>
+        </tr>
+        <tr>
+          <td>電話番号：</td><td><%= @sell.ship_tel %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="card card-body bg-light p-3 col-5 float-rigth">
+      <table>
+        <tr>
+          <th>合計金額：￥<%= (@sell_detail.price).to_i * (@sell_detail.quantity).to_i %>円</th>
+        </tr>
+        <tr>
+          <th>支払い情報</th>
+        </tr>
+          <td><%= @sell.pay %></td>
+      </table>
+    </div>
   </div>
 </div>
