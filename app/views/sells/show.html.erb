@@ -1,15 +1,14 @@
 <div class="container card card-body bg-light p-3">
+  <h2 class="offset-md-2"><%= @product.cd_title %></h2>
   <div class="row">
     <div class="col-3 offset-md-2">
-      <h2>商品詳細</h2>
         <%= attachment_image_tag @product, :image, :fill, 250, 250, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>      <div>
         <p>ジャンル: <span class="badge badge-pill genre-icon"><%= @product.genre.genre %></span></p>
       </div>
     </div>
-    <div class="col-5" style="padding-top: 45px;">
+    <div class="col-5">
       <ul class="list-group text-center">
         <li class="list-group-item">購入日:<span> <%= @sell.created_at.strftime('%Y/%m/%d') %></span></li>
-        <li class="list-group-item">シングル/アルバム名:<sapn> <%= @product.cd_title %></sapn></li>
         <li class="list-group-item">アーティスト名:<span> <%= @product.artist.artist %></span></li>
         <li class="list-group-item">レーベル名:<span> <%= @product.label.label %></span></li>
         <li class="list-group-item">購入枚数:<span> <%= @sell_detail.quantity %>枚</span></li>
@@ -37,7 +36,7 @@
         </tr>
       </table>
     </div>
-    <div class="card card-body bg-light p-3 col-5 float-rigth">
+    <div class="card card-body bg-light p-3 col-7 float-rigth">
       <table>
         <tr>
           <th>合計金額：￥<%= (@sell_detail.price).to_i * (@sell_detail.quantity).to_i %>円</th>
