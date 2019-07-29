@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+	acts_as_paranoid
 	belongs_to :genre
 	belongs_to :label
 	belongs_to :artist

@@ -4,6 +4,7 @@ class SellsController < ApplicationController
   # GET /sells
   # GET /sells.json
   def index
+      User.with_deleted
       @sells = current_user.sells
   end
 

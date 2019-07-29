@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_045256) do
+ActiveRecord::Schema.define(version: 2019_07_29_084418) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2019_07_29_045256) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_products_on_deleted_at"
   end
 
   create_table "sell_details", force: :cascade do |t|
@@ -98,6 +100,8 @@ ActiveRecord::Schema.define(version: 2019_07_29_045256) do
     t.integer "quantity"
     t.integer "sell_id"
     t.integer "price"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_sell_details_on_deleted_at"
   end
 
   create_table "sells", force: :cascade do |t|
@@ -115,6 +119,8 @@ ActiveRecord::Schema.define(version: 2019_07_29_045256) do
     t.string "ship_l_name"
     t.string "ship_f_name"
     t.string "ship_status", default: "受付"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_sells_on_deleted_at"
   end
 
   create_table "ships", force: :cascade do |t|

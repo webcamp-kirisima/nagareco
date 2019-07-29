@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def index
-      @user = User.find(params[:id])
+      @user = User.with_deleted(params[:id])
       @users = User.page(params[:page]).per(5)
   end
 

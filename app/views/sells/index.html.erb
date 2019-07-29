@@ -17,7 +17,7 @@
       </div>
     </div>
       <% s.sell_details.each do |sd| %>
-        <% product = Product.find(sd.product_id) %>
+        <% product = Product.with_deleted.where(id: sd.product_id).first %>
           <div class="row" style="margin:10px 0;">
             <div class="col-3">
               <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
@@ -32,6 +32,7 @@
               </div>
             </div>
           </div>
+
         <% end %>
 
     </div>
