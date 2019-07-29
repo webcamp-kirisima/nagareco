@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.page(params[:page]).per(12)
+    @products = Product.page(params[:page]).per(15)
     @q = Product.ransack(params[:q])
     @product = @search_products
     @product_randoms = Product.order("RANDOM()").limit(5)

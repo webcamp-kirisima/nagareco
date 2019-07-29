@@ -13,6 +13,7 @@
 	<div class="row">
 		<div class="col-8 product_box">
 			<div class="container product_box">
+				<div class="row">
 				<% @products.reverse.each do |p| %>
 						<div class="float-left index_products">
 							<%= link_to (product_path(p.id)) do %>
@@ -25,8 +26,7 @@
 						</div>
 				<% end %>
 			</div>
-			<div>
-			<%= paginate @products %>
+					<%= paginate @products %>
 			</div>
 		</div>
 		<div class="col-4 product_bar">
