@@ -15,11 +15,11 @@
         </tr>
       </thead>
       <tbody>
-        <%= @sells.each do |s| %>
+        <% @sells.reverse.each do |s| %>
           <tr>
-            <td class="align-middle"><%= s.sell_id %></td>
+            <td class="align-middle"><%= s.id %></td>
             <td class="align-middle"><%= s.created_at %></td>
-            <td class="align-middle"><%= s.user_id.last_name %></td>
+            <td class="align-middle"><%= s.user.last_name %></td>
             <td class="align-middle"><%= s.total %></td>
             <td class="align-middle"><%= s.status %></td>
             <td class="align-middle"></td>
@@ -27,6 +27,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @products %>
+    <%= paginate @sells %>
   </div>
 </div>

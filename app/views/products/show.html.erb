@@ -1,5 +1,6 @@
 <div class="container card card-body bg-light p-3">
   <div class="row">
+
     <div class="col-3 offset-md-2">
       <h2>商品詳細</h2>
         <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg", class:"img-fluid" %>
@@ -19,10 +20,12 @@
       <table>
         <tr>
           <td>
+             <% if user_signed_in? %>
             <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
             <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
             <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
             <% end %>
+           <% end %>
           </td>
         </tr>
       </table>
