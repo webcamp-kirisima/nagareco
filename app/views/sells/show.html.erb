@@ -1,7 +1,7 @@
 <div class="container card card-body bg-light p-3" style="margin:20px auto;">
   
   <% @sell_details.each do |sd| %>
-    <% product = Product.find(sd.product_id) %>
+    <% product = Product.with_deleted.where(id: sd.product_id).first %>
     <h2 class="offset-md-2"><%= product.cd_title %></h2>
     <div class="row">
       <div class="col-3 offset-md-2">

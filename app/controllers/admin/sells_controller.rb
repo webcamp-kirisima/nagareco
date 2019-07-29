@@ -4,10 +4,9 @@ class Admin::SellsController < ApplicationController
   end
 
   def show
-    @sell = Sell.find(params[:id])
-    @sell_detail = SellDetail.find(params[:id])
-    @product = Product.find(@sell_detail.product_id)
-    @sell = Sell.new
+      @sell = Sell.find(params[:id])
+      @sell_detail = SellDetail.find(params[:id])
+      @sell_details = SellDetail.where(sell_id: @sell.id)
   end
 
   def create

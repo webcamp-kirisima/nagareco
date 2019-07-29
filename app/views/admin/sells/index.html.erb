@@ -1,32 +1,40 @@
+<h1>注文一覧</h1>
+
 <div class="container">
-  <div class="row card card-body bg-light p-4">
-    <div class="headline">
-      <h2>注文一覧</h2>
+  <% @sells.reverse.each do |s| %>
+    <div class="container card card-body bg-light p-3" style="margin:20px 0;">
+    <div class="row">
+      <div class="col-3">
+        <p>注文ID：<%= s.id %></p>
+      </div>
+      <div class="col-5">
+        <p>ご購入日：<%= s.created_at.strftime('%Y/%m/%d') %><span style="padding-left:20px;">配送状況：<%= s.ship_status %></p>
+      </div>
+      <div class="col-3">
+        <div>
+          お支払い合計：￥<%= s.total %>円
+        </div>
+        <div style="margin-top:20px;">
+          <%= link_to "詳細", admin_sell_path(s.id) %>
+        </div>
+      </div>
     </div>
-    <table class="table table-bordered text-center" style="height: 100px;">
-      <thead class="thead thead-light">
-        <tr>
-          <th class="align-middle">注文ID</th>
-          <th class="align-middle">受注日</th>
-          <th class="align-middle">名前</th>
-          <th class="align-middle">合計金額</th>
-          <th class="align-middle">発送状況</th>
-          <th class="align-middle"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @sells.reverse.each do |s| %>
-          <tr>
-            <td class="align-middle"><%= s.id %></td>
-            <td class="align-middle"><%= s.created_at %></td>
-            <td class="align-middle"><%= s.user.last_name %></td>
-            <td class="align-middle"><%= s.total %></td>
-            <td class="align-middle"><%= s.ship_status %></td>
-            <td class="align-middle"><%= link_to "詳細", admin_sell_path(s.id) %></td>
-          </tr>
+      <% s.sell_details.each do |sd| %>
+        <% product = Product.with_deleted.where(id: sd.product_id).first %>
+          <div class="row" style="margin:10px 0;">
+            <div class="col-3">
+              <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
+            </div>
+            <div class="col-9 row">
+              <div class="col-7">
+                <%= product.cd_title %><br/>
+                <%= product.artist.artist %>
+              </div>
+            </div>
+          </div>
+
         <% end %>
-      </tbody>
-    </table>
-    <%= paginate @sells %>
-  </div>
+
+    </div>
+  <% end %>
 </div>
