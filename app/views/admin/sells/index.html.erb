@@ -22,8 +22,8 @@
             <td class="align-middle"><%= s.created_at %></td>
             <td class="align-middle"><%= s.user.last_name %></td>
             <td class="align-middle"><%= s.total %></td>
-            <td class="align-middle"><%= s.status %></td>
-            <td class="align-middle"></td>
+            <td class="align-middle"><%= s.ship_status %></td>
+            <td class="align-middle"><%= link_to "詳細", admin_sell_path(s.id) %></td>
           </tr>
         <% end %>
       </tbody>
