@@ -25,7 +25,7 @@
             <td>購入数：<%= @sell_detail.quantity %></td>
           </tr>
           <tr>
-            <td>合計金額：￥<%=(@sell_detail.price)*@sell_detail.quantity %>円</td>
+            <td>合計金額：￥<%= (@sell_detail.price).to_i * (@sell_detail.quantity).to_i %>円</td>
           </tr>
         </table>
       </div>
