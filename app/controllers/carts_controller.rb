@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  before_action :correct_user, only: [:show]
   # GET /carts
   # GET /carts.json
   def index
@@ -73,11 +73,11 @@ class CartsController < ApplicationController
   end
 
   def correct_user
-      @cart = current_user.cart.find_by(id: params[:id])
-      unless @cart
-      redirect_to root_path
+      user = User.find(params[:user_id])
+      if current_user != user
+        redirect_to root_path
       end
-    end
+  end
 
 
   private

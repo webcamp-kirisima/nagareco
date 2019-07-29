@@ -2,7 +2,6 @@ class Admin::SellsController < ApplicationController
   before_action :authenticate_admin!
   def index
     @sells = Sell.page(params[:page]).per(5)
-    @sells = Sell
   end
 
   def show

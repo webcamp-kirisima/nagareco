@@ -68,6 +68,13 @@ end
     end
   end
 
+  def correct_user
+      @cart = current_user.carts.find_by(id: params[:id])
+      unless @cart
+      redirect_to root_path
+      end
+    end
+
 
   private
 
