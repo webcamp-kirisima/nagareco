@@ -2,22 +2,33 @@
 
 <div class="container">
   <% @sells.each do |s| %>
-    <% s.sell_details.each do |sd| %>
-    <% product = Product.find(sd.product_id) %>
-    <div class="row order">
+    <div class="container card card-body bg-light p-3" style="margin:20px 0;">
+    <div class="row">
       <div class="col-3">
-        <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
+        <p>注文ID.：<%= s.id %></p>
       </div>
-      <div class="col-9 row">
-        <div class="col-10">
-          <%= product.cd_title %><br/>
-          <%= product.artist.artist %>
-        </div>
-        <div class="2">
-          <%= link_to "詳細", sell_path(s.id) %>
-        </div>
+      <div class="col-6">
+        <p>ご購入日：<%= s.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+            <div class="col-2">
+        <%= link_to "詳細", sell_path(s.id) %>
       </div>
     </div>
-    <% end %>
-<% end %>
+      <% s.sell_details.each do |sd| %>
+        <% product = Product.find(sd.product_id) %>
+          <div class="row" style="margin:10px 0;">
+            <div class="col-3">
+              <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "img-fluid"  %>
+            </div>
+            <div class="col-9 row">
+              <div class="col-10">
+                <%= product.cd_title %><br/>
+                <%= product.artist.artist %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
+  <% end %>
 </div>
