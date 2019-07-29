@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get'admin/top' => 'admin/top#top'
 
   resources :line_items
-  resources :carts, only: [:index, :create, :new, :edit, :update, :destroy]
-  get 'users/:user_id/carts/:id' => "carts#show"
+  resources :carts
 
   namespace :admin do
   end

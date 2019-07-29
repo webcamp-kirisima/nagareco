@@ -55,7 +55,7 @@
 
               <li class="list-inline-item nav-list-item">
                 <i class="fas fa-shopping-cart"></i>
-                <%= link_to "カート", "users/#{current_user.id}/carts/#{current_cart.id}" %>
+                <%= link_to "カート", cart_path(current_cart) %>
               </li>
 
               <li class="list-inline-item nav-list-item">

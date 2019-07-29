@@ -37,6 +37,7 @@ class LineItemsController < ApplicationController
     p @line_item
 
     respond_to do |format|
+      @line_item.user_id = current_user.id
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'カートに商品が追加されました。' }
         format.json { render :show, status: :created, location: @line_item }

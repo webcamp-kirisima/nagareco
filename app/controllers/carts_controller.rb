@@ -73,8 +73,9 @@ class CartsController < ApplicationController
   end
 
   def correct_user
-      user = User.find(params[:user_id])
-      if current_user != user
+      cart = Cart.find(params[:id])
+      line_item = cart.line_items.first
+      if line_item.present? && current_user != line_item.user
         redirect_to root_path
       end
   end
