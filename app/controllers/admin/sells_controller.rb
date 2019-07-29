@@ -1,6 +1,6 @@
 class Admin::SellsController < ApplicationController
   def index
-    @sells = Sell.page(params[:page]).per(5)
+    @sells = Sell.page(params[:page]).per(20)
   end
 
   def show
