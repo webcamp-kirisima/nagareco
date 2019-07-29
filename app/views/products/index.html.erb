@@ -12,7 +12,7 @@
 <div class="container index">
 	<div class="row">
 		<div class="col-8 product_box">
-			<div class="container product_box">
+			<div class="container product_box clearfix">
 				<% @products.reverse.each do |p| %>
 						<div class="float-left index_products">
 							<%= link_to (product_path(p.id)) do %>
@@ -25,7 +25,7 @@
 						</div>
 				<% end %>
 			</div>
-			<div>
+			<div class="offset-4 col-3 ">
 			<%= paginate @products %>
 			</div>
 		</div>

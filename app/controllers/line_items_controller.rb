@@ -37,6 +37,7 @@ class LineItemsController < ApplicationController
     p @line_item
 
     respond_to do |format|
+      @line_item.user_id = current_user.id
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'カートに商品が追加されました。' }
         format.json { render :show, status: :created, location: @line_item }
@@ -67,6 +68,13 @@ end
       format.json { head :no_content }
     end
   end
+
+  def correct_user
+      @cart = current_user.carts.find_by(id: params[:id])
+      unless @cart
+      redirect_to root_path
+      end
+    end
 
 
   private
