@@ -1,5 +1,5 @@
 <div class="container card card-body bg-light p-3" style="margin:20px auto;">
-  
+
   <% @sell_details.each do |sd| %>
     <% product = Product.with_deleted.where(id: sd.product_id).first %>
     <h2 class="offset-md-2"><%= product.cd_title %></h2>
@@ -51,7 +51,14 @@
           <th>支払い方法</th>
         </tr>
           <td><%= @sell.pay %></td>
+
       </table>
+      <div>
+      <%= form_for(@sell, url: admin_sell_path, method: "put") do |f| %>
+        <%= f.select :ship_status, ["受付","商品準備中","出荷済"] %>
+        <%= f.submit "ステータス変更" %>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>
