@@ -3,7 +3,7 @@
 		<%= form_for(@user) do |f| %>
 			 <table border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
 	            <tr>
-					<th>名前</th>
+					<th>宛先</th>
 					<td class="form-row">
 						<div class="col">
 							<%= f.label :姓, class: "name_form" %>
@@ -12,19 +12,6 @@
                         <div class="col">
 							<%= f.label :名, class: "name_form" %>
 							<%= f.text_field :first_name, class: "form-control" %>
-					    </div>
-					</td>
-				</tr>
-				<tr>
-					<th>カナ</th>
-					<td class="form-row">
-						<div class="col">
-							<%= f.label :セイ, class: "name_form" %>
-							<%= f.text_field :last_kana, class: "form-control" %>
-					    </div>
-                        <div class="col">
-							<%= f.label :メイ, class: "name_form" %>
-							<%= f.text_field :first_kana, class: "form-control" %>
 					    </div>
 					</td>
 				</tr>
@@ -44,15 +31,12 @@
 					<td><%= f.text_field :tel, class: "form-control" %></td>
 				</tr>
 				<tr>
-					<th><%= f.label :メールアドレス %></th>
-					<td><%= f.text_field :email, class: "form-control" %></td>
-				</tr>
+			         <th><%= f.label :メールアドレス %></th>
+			         <td><%= f.email_field :email, autofocus: true, autocomplete: "メール", class: "form-control" %></td>
 
-
-
-				<tr>
-					<th>パスワード</th>
-					<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-warning btn-block" %></td>
+		        </tr>
+		        <tr>
+					<td colspan="2"><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-info btn-block" %></td>
 				</tr>
 
 				<tr>

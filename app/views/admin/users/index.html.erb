@@ -1,18 +1,28 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th> id</th><th> 苗字</th> <th> 名前　</th><th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
+<div class="container">
+  <div class="row card card-body bg-light p-4">
+    <div class="headline">
+      <h2>ユーザー一覧</h2>
+    </div>
+    <table class="table table-bordered text-center" style="height: 100px;">
+      <thead class="thead thead-dark">
+        <tr>
+          <th style="width: 10%;">id</th>
+          <th>苗字</th>
+          <th>名前</th>
+          <th style="width: 15%;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @allusers.each do |user| %>
+        <tr>
+          <td class="align-middle"><%= user.id %></td>
+          <td class="align-middle"><%= user.last_name %></td>
+          <td class="align-middle"><%= user.first_name %></td>
+          <td class="align-middle"><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-add" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
   </div>
-      <td><%= user.id %></td>
-      <td><%= user.last_name %></td>
-      <td><%= user.first_name %></td>
-      <td><%= link_to "詳細",  admin_user_path(user.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>

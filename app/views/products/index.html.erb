@@ -1,56 +1,64 @@
-<div class="slide">
-	<div class="theTarget">
-		<div class="image1"></div>
-		<div class="image2"></div>
-		<div class="image3"></div>
-		<div class="image4"></div>
-		<div class="image5"></div>
- 	</div>
+<div class="container-field">
+	<div class="slide"><!-- スライドショー -->
+		<div class="theTarget">
+			<div class="image1"></div>
+			<div class="image2"></div>
+			<div class="image3"></div>
+			<div class="image4"></div>
+			<div class="image5"></div>
+	 	</div>
+	</div>
 </div>
-
-
-<div class="container"><!-- スライドショー -->
-		<% @products.each do |p| %>
-			<div class="row">
-				<div class="col-3">
-				<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-				</div>
-					<div class="col-5">
-						<table>
+<div class="container index">
+	<div class="row">
+		<div class="col-8 product_box">
+			<div class="container product_box clearfix">
+				<% @products.reverse.each do |p| %>
+						<div class="float-left index_products">
+							<%= link_to (product_path(p.id)) do %>
+							<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
+							<% end %>
+							<div>
+								<div><%= truncate(p.cd_title, length: 8, :omission => "...") %></div>
+								<div><%= truncate(p.artist.artist,length: 8, :omission => "...") %></div>
+							</div>
+						</div>
+				<% end %>
+			</div>
+			<div class="offset-4 col-3 ">
+			<%= paginate @products %>
+			</div>
+		</div>
+		<div class="col-4 product_bar">
+			<div class="card bg-light mb-3">
+				  <div class="card-header">管理人のおすすめ
+				  </div>
+				<div class="card-body">
+					<% @product_randoms.each do |r| %>
+				<div class="row">
+					<div class="col-4">
+						<%= link_to product_path(r.id) do %>
+							<%= attachment_image_tag r, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" ,class: "d-block mx-auto",class: "img-fluid" %>
+						<% end %>
+					</div>
+					<div class="col-8">
+						<table class="table" style="font-size: 3pt;">
 							<tr>
-								<th>アルバム名：</th>
-								<th><%= p.cd_title %></th>
-								<th></th>
+								<th><%= r.cd_title %></th>
 							</tr>
 							<tr>
-								<td>アーティスト：</td>
-								<td><%= p.artist.artist %></td><!-- アーティスト -->
-								<td></td>
-							</tr>
-							<tr>
-								<td>税込価格：</td>
-								<td><%=p.notax_price %></td>
-								<td><%= link_to "詳細",  product_path(p.id) %></td>
+								<td><%= r.artist.artist%></td>
 							</tr>
 						</table>
 					</div>
 				</div>
-		<% end %>
-		<div class="row"><!-- サイドバー -->
-			<div class="col-4">
-				<!-- <h2>管理人おすすめ</h2>
-				<%= attachment_image_tag @product, :image_id, :fill, 200, 200, size: '50x50' %>
-				<table>
-					<tr>
-						<th>アルバム名：</th>
-						<th><%=  %></th>
-					</tr>
-					<tr>
-						<td>アーティスト名：</td>
-						<td><%= %></td>
-					</tr>
-				</table> -->
-
+				<% end %>
+				</div>
 			</div>
 		</div>
+	</div>
 </div>
+
+
+
+

@@ -5,8 +5,11 @@ class GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save
-    redirect_to new_admin_product_path(current_user)
+    if @genre.save
+      redirect_to new_admin_product_path
+    else
+      render :new
+    end
   end
 
   private

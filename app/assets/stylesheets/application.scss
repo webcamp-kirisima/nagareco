@@ -18,6 +18,46 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+	margin-bottom: 50px;
+	background-color: #de9610;
+	color: #444;
+}
+
+footer {
+	height: 45px;
+	margin-top: 50px;
+	background-color: #de9610;
+	color: #444;
+}
+
+a {
+	color: #444;
+	text-decoration: none;
+}
+a:visited {
+	color: #444;
+}
+
+.nav-content {
+	font-size: 20px;
+}
+
+.nav-list {
+	padding-bottom: 15px;
+}
+
+.search {
+	text-align: right;
+}
+
 .image1{
 	background-image: url(image1.jpg);
 }
@@ -45,9 +85,43 @@
 .edit-pass{
 	font-size:8px;
     color:gray;
-    
 }
 
 .log{
 	margin: 0 auto;
 }
+
+.order{
+	border: 1px solid black;
+	margin: 15px;
+	padding: 10px;
+	border-radius: 1em
+}
+
+.index{
+	margin: 20px 20px;
+	min-width:1200px;
+}
+
+.index_products{
+	border: 1px solid #F2F2F2;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 1em
+}
+
+.product_box{
+	min-width:760px;
+
+}
+
+.product_bar{
+	min-width:340px;
+
+}
+
+.img-fluid{
+	border: 1px solid #F2F2F2;
+	padding:5px;
+}
+

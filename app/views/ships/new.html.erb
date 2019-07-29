@@ -1,0 +1,40 @@
+<div class="container col-12">
+	<div class="container col-10">
+		<%= form_for(@ship) do |f| %>
+			 <table border="1" bordercolor="#4682B4" cellpadding="15" style="width:100%; border-collapse:separate;">
+	            <tr>
+					<th>宛先</th>
+					<td class="form-row">
+						<div class="col">
+							<%= f.label :姓, class: "name_form" %>
+							<%= f.text_field :last_name, class: "form-control" %>
+					    </div>
+                        <div class="col">
+							<%= f.label :名, class: "name_form" %>
+							<%= f.text_field :first_name, class: "form-control" %>
+					    </div>
+					</td>
+				</tr>
+
+				<tr>
+					<th><%= f.label :郵便番号 %></th>
+					<td><%= f.text_field :code, class: "form-control" %></td>
+				</tr>
+
+				<tr>
+					<th><%= f.label :住所 %></th>
+					<td><%= f.text_field :address, class: "form-control" %></td>
+				</tr>
+
+				<tr>
+					<th><%= f.label :電話番号 %></th>
+					<td><%= f.text_field :tel, class: "form-control" %></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><%= f.submit "宛先を追加する", class: "btn btn-primary btn-block" %></td>
+				</tr>
+			</table>
+		<% end %>
+	</div>
+</div>

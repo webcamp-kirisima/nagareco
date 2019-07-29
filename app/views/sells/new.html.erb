@@ -1,0 +1,127 @@
+<div class="container">
+	<%= form_for @sell, url: sells_create_conf_path do  |f| %>
+		<div class="row">
+			<div class="col-8">
+			    <table style="width:100%; "cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">お客様情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+				    		<td>名前</td><td><%= current_user.last_name %> <%= current_user.first_name %> 様</td>
+				    	</tr>
+				    	<tr>
+				    		<td>郵便番号</td><td><%= current_user.zip_code %></td>
+				    	</tr>
+				    	<tr>
+				    		<td>電話番号</td><td><%= current_user.tel %></td>
+				    	</tr>
+				    	<tr>
+				    		<td>住所</td><td><%= current_user.address %></td>
+				    	</tr>
+			    	</tbody>
+			    </table>
+			    <table style="width:100%; "cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">送付先情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+							<td>受取人氏名</td>
+							<td class="form-row">
+								<div class="col">
+									<%= f.label :姓, class: "name_form" %>
+									<%= f.text_field :ship_l_name, :value => current_user.last_name, class: "form-control" %>
+							    </div>
+		                        <div class="col">
+									<%= f.label :名, class: "name_form" %>
+									<%= f.text_field :ship_f_name, :value => current_user.first_name, class: "form-control" %>
+								</div>
+							</td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :郵便番号 %></td>
+							<td><%= f.text_field :ship_code, :value => current_user.zip_code, class: "form-control" %></td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :住所 %></td>
+							<td><%= f.text_field :ship_address, :value => current_user.address, class: "form-control" %></td>
+				    	</tr>
+				    	<tr>
+				    		<td><%= f.label :電話番号 %></td>
+							<td><%= f.text_field :ship_tel, :value => current_user.tel, class: "form-control" %></td>
+				    	</tr>
+			    	</tbody>
+			    </table>
+
+			    <table style="width:100%;" cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+			    			<td colspan="2">商品情報</td>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<% @cart.line_items.each do |i| %>
+				    		<tr>
+					    		<td></td>
+					    		<td><%= i.product.cd_title %>×<%= i.quantity %></td>
+					    	</tr>
+					    	<tr>
+					    		<td><%= attachment_image_tag i.product, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+					    		<td>価格：<%= i.product.notax_price * 108/100 %>　小計：<%= i.product.notax_price * 108/100 * i.quantity %></td>
+					    	</tr>
+				    	<% end %>
+			    	</tbody>
+			    </table>
+
+				<table style="width:100%;" cellpadding="15">
+			    	<thead class="sell_head">
+			    		<tr>
+				    		<td colspan="2">お支払い方法</td>
+				    	</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+			    			<td>
+			    		<%= f.select :pay, Sell.pays.keys.to_a, {} %>
+							</td>
+						</tr>
+			    	</tbody>
+				</table>
+			</div>
+	        <div class="col-4">
+				<div>
+					<div>
+						<table style="width:100%;" cellpadding="15">
+					    	<thead>
+					    		<tr>
+						    		<td>小計</td><td>￥ <%= (@cart.total_price).to_i * 108/100 %></td>
+						    	</tr>
+						    	<tr>
+						    		<td>送料</td><td>￥ 500</td>
+						    	</tr>
+					    	</thead>
+					    	<tbody>
+					    		<tr>
+					    			<td>合計</td><td>￥ <%= (@cart.total_price).to_i * 108/100 + 500 %></td>
+					    		</tr>
+					    		<tr>
+					    			<td colspan="2">
+								    	<div class="btn-group-vertical btn-block" role="group" aria-label="積み重ねボタングループ">
+											<%= f.submit "確認する", class: "btn btn-danger btn-block"%>
+											<%= link_to "カートに戻る", cart_path(@cart), class: "btn btn-secondary btn-block" %>
+										</div>
+									</td>
+					    		</tr>
+					    	</tbody>
+				    	</table>
+			    	</div>
+				</div>
+			</div>
+		 </div>
+	<% end %>
+</div>

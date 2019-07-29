@@ -1,3 +1,14 @@
 // Place all the styles related to the admin::top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top {
+  .admin-menu {
+    margin: 110px;
+  }
+  .headline {
+    text-align: center;
+  }
+  .btn-item {
+    font-size: 25px;
+  }
+}

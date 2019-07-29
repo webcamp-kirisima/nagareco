@@ -5,8 +5,11 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
-    @label.save
-    redirect_to  new_admin_product_path(current_user)
+    if @label.save
+      redirect_to  new_admin_product_path
+    else
+      render :new
+    end
   end
 
   private

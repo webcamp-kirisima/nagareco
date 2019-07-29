@@ -70,3 +70,4 @@ gem 'jquery-rails'
 gem "paranoia"
 gem 'cocoon'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'pry-rails'
