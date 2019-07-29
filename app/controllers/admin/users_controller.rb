@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin!
    def show
-      @user = User.find(params[:id])
+      @user = User.with_deleted.find(params[:id])
   end
 
   def edit
@@ -18,6 +19,7 @@ class Admin::UsersController < ApplicationController
 
   def index
       @users = User.page(params[:page]).per(5)
+      @allusers = User.with_deleted
   end
 
   def destroy

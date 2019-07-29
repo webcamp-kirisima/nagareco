@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /carts
   # GET /carts.json
@@ -70,6 +71,14 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def correct_user
+      @cart = current_user.cart.find_by(id: params[:id])
+      unless @cart
+      redirect_to root_path
+      end
+    end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
