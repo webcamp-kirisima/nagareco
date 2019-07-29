@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
   def set_search
       @search = Product.ransack(params[:q])
-      @search_products = @search.result.page(params[:page]).per(15)
+
+      @search_products = @search.result.page(params[:page]).per(12)
   end
 
   protect_from_forgery with: :exception
