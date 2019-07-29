@@ -21,7 +21,7 @@ class Product < ApplicationRecord
 	validates :notax_price, presence: true
 	validates :label, presence: true
 	validates :genre, presence: true
-	validates :stock, presence: true, numericality: { :greater_than => 0 }
+	validates :stock, presence: true, numericality: { :greater_than_or_equal_to => 0 }
 
     private
 	def referenced_by_line_item
