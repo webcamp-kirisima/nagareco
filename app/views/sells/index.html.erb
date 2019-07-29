@@ -5,10 +5,10 @@
     <div class="container card card-body bg-light p-3" style="margin:20px 0;">
     <div class="row">
       <div class="col-3">
-        <p>注文ID.：<%= s.id %></p>
+        <p>注文ID：<%= s.id %></p>
       </div>
       <div class="col-5">
-        <p>ご購入日：<%= s.created_at.strftime('%Y/%m/%d') %></p>
+        <p>ご購入日：<%= s.created_at.strftime('%Y/%m/%d') %><span style="padding-left:20px;">配送状況：<%= s.ship_status %></p>
       </div>
       <div class="col-3">
         <div>
