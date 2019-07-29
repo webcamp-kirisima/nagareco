@@ -15,9 +15,9 @@
         </tr>
       </thead>
       <tbody>
-        <%= @sells.each do |s| %>
+        <% @sells.each do |s| %>
           <tr>
-            <td class="align-middle"><%= s.sell_id %></td>
+            <td class="align-middle"><%= s.id %></td>
             <td class="align-middle"><%= s.created_at %></td>
             <td class="align-middle"><%= s.user_id.last_name %></td>
             <td class="align-middle"><%= s.total %></td>
@@ -27,6 +27,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @products %>
+    <%= paginate @sells %>
   </div>
 </div>

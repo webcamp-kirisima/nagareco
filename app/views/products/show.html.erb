@@ -1,3 +1,4 @@
+<div class="container">
 <div class="container card card-body bg-light p-3">
   <div class="row">
     <div class="col-3 offset-md-2">
@@ -29,22 +30,10 @@
       <div class="col-3">
         <table class="table table-borderless">
           <tr>
-            <td clospan ="2"><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
+            <td><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
           </tr>
         </table>
       </div>
-        <div class="row">
-        <div class="col-12">
-          <% @product.discs.each do |p| %><!-- ディスクNo. -->
-          <table>
-              <tr>
-                <td>NO:</td>
-                <td><%= p.disc_num %> </td>
-
-              </tr>
-              <% end %>
-        </div>
-    </div>
   </div>
   <div class="row">
     <div class="col-8 offset-md-2">
