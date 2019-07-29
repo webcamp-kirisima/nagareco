@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @sells.each do |s| %>
+        <% @sells.reverse.each do |s| %>
           <tr>
             <td class="align-middle"><%= s.id %></td>
             <td class="align-middle"><%= s.created_at %></td>

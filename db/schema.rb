@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_045256) do
     t.datetime "updated_at", null: false
     t.integer "quantity"
     t.integer "sell_id"
+    t.integer "price"
   end
 
   create_table "sells", force: :cascade do |t|

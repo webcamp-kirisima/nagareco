@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'sells/finish' => "sells#finish"
+  get'admin/top' => 'admin/top#top'
 
   resources :line_items
   resources :carts
@@ -34,7 +35,6 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   get 'search', to: 'products#search'
-  get'admin/top' => 'admin/top#top'
   get 'about' => 'home#about'
   get 'sells/create_conf' => "sells#create_conf"
   post 'sells/create_conf' => "sells#create_conf"

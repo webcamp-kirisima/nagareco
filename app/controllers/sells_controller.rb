@@ -4,7 +4,7 @@ class SellsController < ApplicationController
   # GET /sells
   # GET /sells.json
   def index
-    @sells = Sell.all
+      @sells = current_user.sells
   end
 
   # GET /sells/1
@@ -46,18 +46,21 @@ class SellsController < ApplicationController
     @sell = Sell.new(sell_params)
     @cart = current_cart
     @sell.user_id = current_user.id
+    @sell.total = (@cart.total_price).to_i * 108/100 + 500
 
-    
     if @sell.save
       @cart.line_items.each do |line_item|
         @sell_detail = SellDetail.new
         @sell_detail.sell_id = @sell.id
         @sell_detail.product_id = line_item.product_id
         @sell_detail.quantity = line_item.quantity
+        @sell_detail.price = line_item.product.notax_price * 108/100
         @sell_detail.save
+        @product = Product.find(@sell_detail.product_id)
+        @product.stock -= @sell_detail.quantity
+        @product.save
         line_item.destroy
       end
-
        redirect_to sells_finish_path
     else
       redirect_to new_sell_path
