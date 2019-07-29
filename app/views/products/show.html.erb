@@ -1,63 +1,53 @@
 <div class="container card card-body bg-light p-3">
   <div class="row">
-  <div class="col-3 offset-md-2">
-  <h2>商品詳細</h2>
-  <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg", class:"img-fluid" %>
-  <div>
-  <p>ジャンル: <span class="badge badge-pill genre-icon"><%= @product.genre.genre %></span></p>
-  </div>
-  </div>
-  <div class="col-5" style="padding-top: 45px;">
-  <ul class="list-group text-center">
-  <li class="list-group-item">シングル/アルバム名:<sapn> <%= @product.cd_title %></sapn></li>
-  <li class="list-group-item">アーティスト名:<span> <%= @product.artist.artist %></span></li>
-  <li class="list-group-item">レーベル名:<span> <%= @product.label.label %></span></li>
-  <li class="list-group-item">在庫数:<span> <%= @product.stock %></span></li>
-  <li class="list-group-item">価格（税別）:<span> <%= @product.notax_price %> 円</span></li>
-  </ul>
-  <div class="float-right", style="padding-top: 5px;">
-  <tr>
-  <td>
-  <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
-  <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
-  <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
-  <% end %>
-  <td>
-  </tr>
-  </table>
-  </div>
-  <div class="col-3">
-  <table class="table table-borderless">
-  <tr>
-  <td clospan ="2"><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
-  </tr>
-  </table>
-  </div>
-  <div class="row">
-  <div class="col-12">
-  <% @product.discs.each do |p| %><!-- ディスクNo. -->
-  <table>
-  <tr>
-  <td>NO:</td>
-  <td><%= p.disc_num %> </td>
-  </tr>
-  </table>
-  <% end %>
-  </div>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-8 offset-md-2">
-      <h3>収録内容</h3>
-    <div class="card cont-colle">
-      <% @product.discs.each do |p| %><!-- ディスクNo. -->
-        <p>ディスクNo.<%= p.disc_num %></p>
-        <ol class="list-inline">
-          <% p.songs.each do |s| %> <!-- 曲名 -->
-            <li class="list-inline-item"><%= s.song %></li>
+    <div class="col-3 offset-md-2">
+      <h2>商品詳細</h2>
+        <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg", class:"img-fluid" %>
+      <div>
+        <p>ジャンル: <span class="badge badge-pill genre-icon"><%= @product.genre.genre %></span></p>
+      </div>
+    </div>
+    <div class="col-5" style="padding-top: 45px;">
+      <ul class="list-group text-center">
+        <li class="list-group-item">シングル/アルバム名:<sapn> <%= @product.cd_title %></sapn></li>
+        <li class="list-group-item">アーティスト名:<span> <%= @product.artist.artist %></span></li>
+        <li class="list-group-item">レーベル名:<span> <%= @product.label.label %></span></li>
+        <li class="list-group-item">在庫数:<span> <%= @product.stock %></span></li>
+        <li class="list-group-item">価格（税別）:<span> <%= @product.notax_price %> 円</span></li>
+      </ul>
+    <div class="float-right", style="padding-top: 5px;">
+      <table>
+        <tr>
+          <td>
+            <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
+            <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
+            <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table table-borderless">
+        <tr>
+          <td clospan ="2"><%= @product.stock == 0 ? "在庫なし" : "在庫あり"  %></td><!-- 三項演算子 -->
+        </tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h3>収録内容</h3>
+        <div class="card cont-colle">
+          <% @product.discs.each do |p| %><!-- ディスクNo. -->
+            <p>ディスクNo.<%= p.disc_num %></p>
+            <ol class="list-inline">
+              <% p.songs.each do |s| %> <!-- 曲名 -->
+                <li class="list-inline-item"><%= s.track_num %>:<%= s.song %></li><br/>
+              <% end %>
+            </ol>
           <% end %>
-        </ol>
-      <% end %>
+        </div>
+      </div>
     </div>
     </div>
   </div>
