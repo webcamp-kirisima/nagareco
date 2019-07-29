@@ -15,18 +15,18 @@
         </tr>
       </thead>
       <tbody>
-        <%= @sells.each do |s| %>
+        <% @sells.each do |s| %>
           <tr>
-            <td class="align-middle"><%= s.sell_id %></td>
+            <td class="align-middle"><%= s.id %></td>
             <td class="align-middle"><%= s.created_at %></td>
-            <td class="align-middle"><%= s.user_id.last_name %></td>
+            <td class="align-middle"><%= s.user.last_name %></td>
             <td class="align-middle"><%= s.total %></td>
             <td class="align-middle"><%= s.ship_status %></td>
-            <td class="align-middle"><%= link_to "詳細", admin_sell_path %></td>
+            <td class="align-middle"><%= link_to "詳細", admin_sell_path(s.id) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <%= paginate @products %>
+    <%= paginate @sells %>
   </div>
 </div>
