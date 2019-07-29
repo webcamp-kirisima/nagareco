@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Sell.create(ship_status: "受付")
+Sell.create(ship_status: "商品準備中")
+Sell.create(ship_status: "出荷済")
