@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   resources :carts
 
   namespace :admin do
-    get 'sells/index'
-    get 'sells/show'
-    get 'sells/update'
   end
   devise_for :users
   devise_for :admins

@@ -20,8 +20,8 @@
 							<%= attachment_image_tag p, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" ,class: "img-fluid" %>
 							<% end %>
 							<div>
-								<div><%= p.cd_title %></div>
-								<div><%= p.artist.artist %></div>
+								<div><%= truncate(p.cd_title, length: 8, :omission => "...") %></div>
+								<div><%= truncate(p.artist.artist,length: 8, :omission => "...") %></div>
 							</div>
 						</div>
 				<% end %>

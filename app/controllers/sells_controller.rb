@@ -12,7 +12,7 @@ class SellsController < ApplicationController
   def show
       @sell = Sell.find(params[:id])
       @sell_detail = SellDetail.find(params[:id])
-      @product = Product.find(@sell_detail.product_id)
+      @sell_details = SellDetail.where(sell_id: @sell.id)
   end
 
   # GET /sells/new
