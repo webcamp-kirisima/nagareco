@@ -1,5 +1,5 @@
 class SellsController < ApplicationController
-
+ before_action :authenticate_user!
 
   # GET /sells
   # GET /sells.json

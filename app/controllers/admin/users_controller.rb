@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin!
    def show
       @user = User.with_deleted.find(params[:id])
   end

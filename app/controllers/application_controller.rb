@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
       @search = Product.ransack(params[:q])
-      @search_products = @search.result.page(params[:page]).per(12)
+      @search_products = @search.result.page(params[:page]).per(15)
   end
 
   protect_from_forgery with: :exception
@@ -25,12 +25,13 @@ class ApplicationController < ActionController::Base
       cart
     end
 
-    def after_sign_in_path_for(resource_or_scope)
-      if resource_or_scope == :admin
-         admin_top_path
-      else
-         resource_or_scope == :user
-         root_path
-      end
+    
+    def after_sign_in_path_for(resource)
+      case resource
+      when Admin
+      admin_top_path
+    when User
+      root_path
     end
+end
 end
