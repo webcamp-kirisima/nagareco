@@ -16,12 +16,14 @@
           <li class="list-group-item">価格（税別）:<span> <%= @product.notax_price %> 円</span></li>
         </ul>
         <tr>
+          <% if user_signed_in?  %>
                 <td>
                   <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
                   <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
                   <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
                   <% end %>
                 <td>
+                   <% end %>
              </tr>
     </div>
   </div>
