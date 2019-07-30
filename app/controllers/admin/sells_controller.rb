@@ -1,14 +1,13 @@
 class Admin::SellsController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @sells = Sell.page(params[:page]).per(5)
-    @sells = Sell.with_deleted
+    @sells = Sell.with_deleted.page(params[:page]).per(5)
   end
 
   def show
-      @sell = Sell.find(params[:id])
-      @sell_detail = SellDetail.find(params[:id])
-      @sell_details = SellDetail.where(sell_id: @sell.id)
+      @sell = Sell.with_deleted.find(params[:id])
+      @sell_detail = SellDetail.with_deleted.find(params[:id])
+      @sell_details = SellDetail.with_deleted.where(sell_id: @sell.id)
   end
 
   def create

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authenticate_user! && :authenticate_admin!
 
   def show
   	  @user = User.find(params[:id])
@@ -32,6 +33,12 @@ class UsersController < ApplicationController
         redirect_to root_path
      end
   end
+  def correct_user
+  @user = current_user.user.find_by(id: params[:id])
+    unless @user
+      redirect_to root_url
+    end
+end
 
   private
     def user_params
