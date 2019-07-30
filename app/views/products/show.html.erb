@@ -1,52 +1,48 @@
 <div class="container card card-body bg-light p-3">
-  <h2 class="offset-md-2" style="margin-bottom:20px;"><%= @product.cd_title %></h2>
-  <div class="row">
 
+  <div class="row">
     <div class="col-3 offset-md-2">
-        <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg", class:"img-fluid" %>
+      <h2>商品詳細</h2>
+      <%= attachment_image_tag @product, :image,  :fill, 250, 250, format: 'jpeg' ,fallback: "no_image.jpg", class:"img-fluid" %>
       <div>
         <p>ジャンル: <span class="badge badge-pill genre-icon"><%= @product.genre.genre %></span></p>
       </div>
     </div>
-    <div class="col-5">
-      <ul class="list-group text-center">
-        <li class="list-group-item">アーティスト名:<span> <%= @product.artist.artist %></span></li>
-        <li class="list-group-item">レーベル名:<span> <%= @product.label.label %></span></li>
-        <li class="list-group-item">在庫数:<span> <%= @product.stock %></span></li>
-        <li class="list-group-item">価格（税別）:<span> <%= @product.notax_price %> 円</span></li>
-      </ul>
-    <div class="float-right", style="padding-top: 5px;">
-      <table>
-        <tr>
-          <td>
-             <% if user_signed_in? %>
-            <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
-              <% if @product.stock.to_i >= 1 %>
-                <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
-                <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
-              <% end %>
-            <% end %>
-           <% end %>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-9" style="margin:20px 0;">
-      <%= @product.stock == 0 ? "ただいま品切れ中です" : "在庫あり"  %>
-    </div>
-      <div class="col-12">
-        <h3>収録内容</h3>
-        <div class="card cont-colle">
-          <% @product.discs.each do |p| %><!-- ディスクNo. -->
-            <p>ディスクNo.<%= p.disc_num %></p>
-            <ol class="list-inline">
-              <% p.songs.each do |s| %> <!-- 曲名 -->
-                <li class="list-inline-item"><%= s.track_num %>:<%= s.song %></li><br/>
-              <% end %>
-            </ol>
-          <% end %>
+
+    <div class="col-5" style="padding-top: 45px;">
+        <ul class="list-group text-center">
+          <li class="list-group-item">シングル/アルバム名:<sapn> <%= @product.cd_title %></sapn></li>
+          <li class="list-group-item">アーティスト名:<span> <%= @product.artist.artist %></span></li>
+          <li class="list-group-item">レーベル名:<span> <%= @product.label.label %></span></li>
+          <li class="list-group-item">在庫数:<span> <%= @product.stock %></span></li>
+          <li class="list-group-item">価格（税別）:<span> <%= @product.notax_price %> 円</span></li>
+        </ul>
+        <div class="float-right", style="padding-top: 5px;">
+          <tr>
+                <td>
+                  <%= form_for(@line_item, url: line_items_path(product_id: @product)) do |f| %>
+                  <%= f.select :quantity,  1..@product.stock,  :selected=>@line_item.quantity %>
+                  <%= f.submit '数量を決めて購入', class:"btn btn-success" %>
+                  <% end %>
+                  <td>
+              </tr>
         </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-md-2">
+      <h3>収録内容</h3>
+      <div class="card cont-colle">
+        <% @product.discs.each do |p| %><!-- ディスクNo. -->
+          <p>ディスクNo.<%= p.disc_num %></p>
+          <ol class="list-inline">
+            <% p.songs.each do |s| %> <!-- 曲名 -->
+             <li class="list-inline-item"><%= s.song %></li>
+            <% end %>
+          </ol>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
